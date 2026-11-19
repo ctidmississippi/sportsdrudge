@@ -2,14 +2,16 @@
 """Fetch sports RSS/Atom feeds, cluster duplicate stories, rank, and render a
 Drudge-style front page to public/index.html. Standard library only."""
 import argparse, base64, html, json, math, os, re, sys, time
-import urllib.request, xml.etree.ElementTree as ET
+import urllib.request, urllib.error, xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 ROOT = Path(__file__).parent
-SPAM = re.compile(r"\b(promo codes?|bonus|odds|predictions?|parlays?|best bets?|betting|sportsbook|draftkings|fanduel|bet365|caesars|prizepicks|how to watch|live stream|where to watch|tv channels?|kickoff times?|start time|fantasy|start 'em|waiver|dfs|player props|power rankings|subscriber chat|mock draft|sports on tv|open thread|game recap|box score|final score|live score|expert picks|staff picks|week \d+ picks|nfl picks)\b", re.I)
+sys.path.insert(0, str(ROOT))
+import art
+SPAM = re.compile(r"\b(promo codes?|bonus|odds|predictions?|parlays?|best bets?|betting|sportsbook|draftkings|fanduel|bet365|caesars|prizepicks|how to watch|live stream|where to watch|tv channels?|kickoff times?|start time|fantasy|start 'em|waiver|dfs|player props|power rankings|subscriber chat|mock draft|trivia|this week in|newsletter|podcast|quiz|slideshow|gallery|news & analysis|latest news|sports news|mailbag|sports on tv|open thread|game recap|box score|final score|live score|expert picks|staff picks|week \d+ picks|nfl picks)\b", re.I)
 UA = "Mozilla/5.0 (compatible; SidelineWire/1.0; +https://github.com)"
 STOP = set("a an the of to in on at for and or vs v with as by is are be from after before over into its it his her their will not out up new says say report reports reportedly per via just".split())
 
@@ -19,16 +21,23 @@ def load_config():
     return cfg
 
 # ---------- fetching ----------
-def fetch(feed, timeout):
-    t0 = time.time()
-    try:
-        req = urllib.request.Request(feed["url"], headers={"User-Agent": UA, "Accept": "application/rss+xml, application/atom+xml, application/xml, text/xml, */*"})
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            data = r.read(3_000_000)
-        items = parse(data, feed)
-        return feed, items, None, round(time.time() - t0, 1)
-    except Exception as e:
-        return feed, [], f"{type(e).__name__}: {str(e)[:120]}", round(time.time() - t0, 1)
+def fetch(feed, timeout, retries=2):
+    t0 = time.time(); err = None
+    for attempt in range(retries + 1):
+        try:
+            req = urllib.request.Request(feed["url"], headers={"User-Agent": UA, "Accept": "application/rss+xml, application/atom+xml, application/xml, text/xml, */*"})
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                data = r.read(3_000_000)
+            return feed, parse(data, feed), None, round(time.time() - t0, 1)
+        except urllib.error.HTTPError as e:
+            err = f"HTTPError: {e.code}"
+            if e.code in (429, 503) and attempt < retries:
+                time.sleep(8 * (attempt + 1)); continue
+            break
+        except Exception as e:
+            err = f"{type(e).__name__}: {str(e)[:120]}"
+            break
+    return feed, [], err, round(time.time() - t0, 1)
 
 def tag(el):  # strip namespace
     return el.tag.rsplit("}", 1)[-1].lower()
@@ -139,13 +148,9 @@ def clean_title(t, maxlen=110):
     if len(t) > maxlen: t = t[:maxlen].rsplit(" ", 1)[0]
     return t
 
-def render(cfg, cols, lead, big, topleft, stats, now):
+def render(cfg, cols, lead, big, topleft, stats, now, lead_img=""):
     css = (ROOT / "style.css").read_text()
-    img = ""
-    p = ROOT / cfg.get("lead_image", "assets/lead.jpg")
-    if p.exists():
-        b64 = base64.b64encode(p.read_bytes()).decode()
-        img = f'<div class="lead"><a href="{html.escape(lead["link"])}"><img src="data:image/jpeg;base64,{b64}" alt=""></a></div>'
+    img = f'<div class="lead"><a href="{html.escape(lead["link"])}"><img src="{lead_img}" alt=""></a></div>' if lead_img else ""
     def a(it, cls="", n=None):
         srcs = sorted({i["source"] for i in it["cluster"]})
         tip = ", ".join(srcs)
@@ -180,6 +185,25 @@ def render(cfg, cols, lead, big, topleft, stats, now):
 <div class="foot">{stamp} · {stats['ok']} of {stats['total']} sources reporting · {stats['clusters']} stories ranked. Headlines link to the original outlets; hover one to see which outlets ran it.</div>
 </body></html>"""
 
+# ---------- lead image ----------
+def pick_lead_image(cfg, lead):
+    """A user-supplied photo whose keywords match the top story wins; otherwise
+    an original sport-matched illustration. Rules live in assets/leads.json:
+    [{"keywords": ["chiefs", "mahomes"], "file": "assets/leads/chiefs.jpg"}]"""
+    text = " ".join(i["title"] for i in lead.get("cluster", [])).lower() if lead.get("cluster") else lead.get("text", "").lower()
+    rules = ROOT / "assets" / "leads.json"
+    if rules.exists():
+        try:
+            for r in json.load(open(rules)):
+                if any(re.search(r"\b" + re.escape(k.lower()) + r"\b", text) for k in r.get("keywords", [])):
+                    p = ROOT / r["file"]
+                    if p.exists():
+                        mime = "image/png" if p.suffix.lower() == ".png" else "image/jpeg"
+                        return f"data:{mime};base64," + base64.b64encode(p.read_bytes()).decode()
+        except Exception as e:
+            print("leads.json problem:", e, file=sys.stderr)
+    return art.data_uri(lead.get("sport", ""), text)
+
 # ---------- main ----------
 def main():
     ap = argparse.ArgumentParser()
@@ -199,8 +223,18 @@ def main():
             try: results.append((feed, parse(f.read_bytes(), feed), None, 0))
             except Exception as e: results.append((feed, [], str(e), 0))
     else:
-        with ThreadPoolExecutor(max_workers=cfg.get("workers", 24)) as ex:
-            results = list(ex.map(lambda f: fetch(f, cfg.get("timeout", 15)), feeds))
+        gn = [f for f in feeds if "news.google.com" in f["url"]]
+        other = [f for f in feeds if "news.google.com" not in f["url"]]
+        def run_gn():
+            out = []
+            for f in gn:
+                out.append(fetch(f, cfg.get("timeout", 15)))
+                time.sleep(cfg.get("gn_delay", 1.5))
+            return out
+        with ThreadPoolExecutor(max_workers=cfg.get("workers", 24) + 1) as ex:
+            gf = ex.submit(run_gn)
+            results = list(ex.map(lambda f: fetch(f, cfg.get("timeout", 15)), other))
+            results += gf.result()
 
     report, items = [], []
     cutoff = now - timedelta(hours=cfg.get("max_age_hours", 40))
@@ -236,18 +270,28 @@ def main():
         cand = [i for i in c["items"] if len(clean_title(i["title"], 400)) <= maxlen]
         return sorted(cand, key=lambda i: (-i["w"], len(i["title"])))[0] if cand else None
 
-    nh = cfg.get("headline_lines", 4)
-    top, topleft, used = [], [], set()
-    for c in clusters:
-        if len(top) < nh:
-            p = short_pick(c, 62)
-            if p:
-                c["rep"] = p; top.append(mk(c, 62)); used.add(id(c)); continue
-        if len(topleft) < 4:
-            p = short_pick(c, 95)
-            if p:
-                c["rep"] = p; topleft.append(mk(c, 95)); used.add(id(c))
-        if len(top) >= nh and len(topleft) >= 4: break
+    nh = cfg.get("headline_lines", 2)
+    lead_n, lead_w = cfg.get("lead_min_sources", 3), cfg.get("lead_min_weight", 1.0)
+
+    def choose(strict):
+        top, topleft, used = [], [], set()
+        for c in clusters:
+            if c["sport"] == "media": continue
+            trusted = c["n"] >= lead_n and max(i["w"] for i in c["items"]) >= lead_w
+            if len(top) < nh and (trusted or not strict):
+                p = short_pick(c, 62)
+                if p:
+                    c["rep"] = p; top.append(mk(c, 62)); used.add(id(c)); continue
+            if len(topleft) < 4 and (c["n"] >= 2 or not strict):
+                p = short_pick(c, 95)
+                if p:
+                    c["rep"] = p; topleft.append(mk(c, 95)); used.add(id(c))
+            if len(top) >= nh and len(topleft) >= 4: break
+        return top, topleft, used
+
+    top, topleft, used = choose(True)
+    if len(top) < nh or len(topleft) < 4:
+        top, topleft, used = choose(False)
     for t in top: t["text"] = t["text"].upper()
     for t in topleft: t["text"] = t["text"].upper() + "..."
     rest = [c for c in clusters if id(c) not in used]
@@ -272,7 +316,8 @@ def main():
             items_.append(m)
         cols.append(items_)
     lead = top[0] if top else {"link": "#"}
-    page = render(cfg, cols, lead, top, topleft, {"ok": ok, "total": len(report), "clusters": len(clusters)}, now)
+    lead_img = pick_lead_image(cfg, lead)
+    page = render(cfg, cols, lead, top, topleft, {"ok": ok, "total": len(report), "clusters": len(clusters)}, now, lead_img)
     out = Path(args.out); out.parent.mkdir(parents=True, exist_ok=True); out.write_text(page)
     print(f"wrote {out} ({len(page)//1024} KB)", file=sys.stderr)
 
