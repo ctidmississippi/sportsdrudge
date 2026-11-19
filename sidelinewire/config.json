@@ -1,19 +1,34 @@
 {
-  "site_name": "Sideline Wire",
-  "lead_image": "assets/lead.jpg",
-  "utc_offset": -6,
-  "max_age_hours": 40,
-  "half_life_hours": 14,
-  "cluster_threshold": 0.55,
-  "headline_lines": 2,
-  "hot_sources": 5,
-  "items_per_column": 36,
-  "min_items": 20,
-  "timeout": 15,
-  "workers": 24,
-  "columns": [
-    ["nfl", "cfb"],
-    ["nba", "cbb", "nhl", "mlb"],
-    ["soccer", "other", "media"]
+ "site_name": "Sideline Wire",
+ "lead_image": "assets/lead.jpg",
+ "utc_offset": -6,
+ "max_age_hours": 40,
+ "half_life_hours": 14,
+ "cluster_threshold": 0.55,
+ "headline_lines": 2,
+ "hot_sources": 5,
+ "items_per_column": 36,
+ "min_items": 20,
+ "timeout": 15,
+ "workers": 32,
+ "columns": [
+  [
+   "nfl",
+   "cfb"
+  ],
+  [
+   "nba",
+   "cbb",
+   "nhl",
+   "mlb"
+  ],
+  [
+   "soccer",
+   "other",
+   "media"
   ]
+ ],
+ "lead_min_sources": 3,
+ "lead_min_weight": 1,
+ "gn_delay": 2
 }
