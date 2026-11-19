@@ -202,6 +202,10 @@ def pick_lead_image(cfg, lead):
                         return f"data:{mime};base64," + base64.b64encode(p.read_bytes()).decode()
         except Exception as e:
             print("leads.json problem:", e, file=sys.stderr)
+    lp = ROOT / str(cfg.get("lead_image", ""))
+    if cfg.get("lead_image") and lp.is_file():
+        mime = "image/png" if lp.suffix.lower() == ".png" else "image/jpeg"
+        return f"data:{mime};base64," + base64.b64encode(lp.read_bytes()).decode()
     return art.data_uri(lead.get("sport", ""), text)
 
 # ---------- main ----------
