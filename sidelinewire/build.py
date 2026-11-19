@@ -9,7 +9,7 @@ from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 ROOT = Path(__file__).parent
-SPAM = re.compile(r"\b(promo codes?|bonus|odds|predictions?|parlays?|best bets?|betting|sportsbook|draftkings|fanduel|bet365|caesars|prizepicks|how to watch|live stream|where to watch|tv channels?|kickoff times?|start time|fantasy|start 'em|waiver|dfs|player props|power rankings|subscriber chat|mock draft|expert picks|staff picks|week \d+ picks|nfl picks)\b", re.I)
+SPAM = re.compile(r"\b(promo codes?|bonus|odds|predictions?|parlays?|best bets?|betting|sportsbook|draftkings|fanduel|bet365|caesars|prizepicks|how to watch|live stream|where to watch|tv channels?|kickoff times?|start time|fantasy|start 'em|waiver|dfs|player props|power rankings|subscriber chat|mock draft|sports on tv|open thread|game recap|box score|final score|live score|expert picks|staff picks|week \d+ picks|nfl picks)\b", re.I)
 UA = "Mozilla/5.0 (compatible; SidelineWire/1.0; +https://github.com)"
 STOP = set("a an the of to in on at for and or vs v with as by is are be from after before over into its it his her their will not out up new says say report reports reportedly per via just".split())
 
@@ -216,7 +216,7 @@ def main():
         print("Too few items; refusing to overwrite the page.", file=sys.stderr); sys.exit(2)
 
     before = len(items)
-    items = [i for i in items if not SPAM.search(i["title"])]
+    items = [i for i in items if len(i["title"]) >= 15 and not SPAM.search(i["title"])]
     print(f"filtered {before - len(items)} promo/betting items", file=sys.stderr)
     for it in items:
         it["sport"] = classify(it)
