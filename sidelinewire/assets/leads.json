@@ -1,3 +1,5 @@
 [
- {"keywords": ["sonny gray", "twins"], "file": "assets/leads/twins.jpg"}
+ {"keywords": ["sonny gray"], "file": "assets/leads/twins.jpg"},
+ {"keywords": ["georgia", "bulldogs", "sanford stadium"], "file": "assets/leads/uga.jpg"},
+ {"keywords": ["twins"], "file": "assets/leads/twins.jpg"}
 ]
