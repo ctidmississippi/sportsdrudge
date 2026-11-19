@@ -9,6 +9,7 @@ from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 ROOT = Path(__file__).parent
+SPAM = re.compile(r"\b(promo codes?|bonus|odds|predictions?|parlays?|best bets?|betting|sportsbook|draftkings|fanduel|bet365|caesars|prizepicks|how to watch|live stream|where to watch|tv channels?|kickoff times?|start time|fantasy|start 'em|waiver|dfs|player props|power rankings|subscriber chat|mock draft|expert picks|staff picks|week \d+ picks|nfl picks)\b", re.I)
 UA = "Mozilla/5.0 (compatible; SidelineWire/1.0; +https://github.com)"
 STOP = set("a an the of to in on at for and or vs v with as by is are be from after before over into its it his her their will not out up new says say report reports reportedly per via just".split())
 
@@ -58,9 +59,12 @@ def parse(data, feed):
                     link = link  # keep first
             elif t in ("pubdate", "published", "updated", "date") and not date:
                 date = parse_date(ch.text)
+        src = feed["name"]
+        if title and "news.google.com" in feed["url"] and " - " in title:
+            title, src = title.rsplit(" - ", 1)
         if title and link:
             out.append({"title": html.unescape(re.sub(r"<[^>]+>", "", title)), "link": link.strip(), "date": date,
-                        "source": feed["name"], "tag": feed.get("tag", "general"), "w": float(feed.get("w", 1))})
+                        "source": src, "tag": feed.get("tag", "general"), "w": float(feed.get("w", 1))})
     return out
 
 # ---------- classification ----------
@@ -211,6 +215,9 @@ def main():
     if len(items) < cfg.get("min_items", 20):
         print("Too few items; refusing to overwrite the page.", file=sys.stderr); sys.exit(2)
 
+    before = len(items)
+    items = [i for i in items if not SPAM.search(i["title"])]
+    print(f"filtered {before - len(items)} promo/betting items", file=sys.stderr)
     for it in items:
         it["sport"] = classify(it)
     clusters = cluster(items, cfg.get("cluster_threshold", 0.55))
@@ -225,11 +232,24 @@ def main():
         r = c["rep"]
         return {"link": r["link"], "text": clean_title(r["title"], maxlen), "cluster": c["items"], "n": c["n"], "sport": c["sport"], "hot": False}
 
-    top = [mk(c, 60) for c in clusters[:cfg.get("headline_lines", 4)]]
+    def short_pick(c, maxlen):
+        cand = [i for i in c["items"] if len(clean_title(i["title"], 400)) <= maxlen]
+        return sorted(cand, key=lambda i: (-i["w"], len(i["title"])))[0] if cand else None
+
+    nh = cfg.get("headline_lines", 4)
+    top, topleft, used = [], [], set()
+    for c in clusters:
+        if len(top) < nh:
+            p = short_pick(c, 62)
+            if p:
+                c["rep"] = p; top.append(mk(c, 62)); used.add(id(c)); continue
+        if len(topleft) < 4:
+            p = short_pick(c, 95)
+            if p:
+                c["rep"] = p; topleft.append(mk(c, 95)); used.add(id(c))
+        if len(top) >= nh and len(topleft) >= 4: break
     for t in top: t["text"] = t["text"].upper()
-    topleft = [mk(c, 80) for c in clusters[cfg.get("headline_lines", 4):cfg.get("headline_lines", 4) + 4]]
     for t in topleft: t["text"] = t["text"].upper() + "..."
-    used = set(id(c) for c in clusters[:cfg.get("headline_lines", 4) + 4])
     rest = [c for c in clusters if id(c) not in used]
 
     groups = cfg["columns"]  # list of lists of sport keys
