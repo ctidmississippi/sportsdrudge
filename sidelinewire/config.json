@@ -1,0 +1,19 @@
+{
+  "site_name": "Sideline Wire",
+  "lead_image": "assets/lead.jpg",
+  "utc_offset": -6,
+  "max_age_hours": 40,
+  "half_life_hours": 14,
+  "cluster_threshold": 0.55,
+  "headline_lines": 4,
+  "hot_sources": 5,
+  "items_per_column": 36,
+  "min_items": 20,
+  "timeout": 15,
+  "workers": 24,
+  "columns": [
+    ["nfl", "cfb"],
+    ["nba", "cbb", "nhl", "mlb"],
+    ["soccer", "other", "media"]
+  ]
+}
