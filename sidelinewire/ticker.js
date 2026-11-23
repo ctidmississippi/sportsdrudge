@@ -17,7 +17,7 @@
     (c.competitors || []).forEach(function (x) { if (x.homeAway === "home") h = x; else a = x; });
     if (!h || !a) return null;
     var detail = t.shortDetail || "";
-    if (t.state === "pre") return {kind: "next", text: name(a) + " at " + name(h) + " (" + detail + ")"};
+    if (t.state === "pre") { var d = new Date(ev.date), when = isNaN(d) ? detail : d.toLocaleString([], {weekday: "short", hour: "numeric", minute: "2-digit"}); return {kind: "next", text: name(a) + " at " + name(h) + " (" + when + ")"}; }
     var score = name(a) + " " + a.score + ", " + name(h) + " " + h.score;
     if (t.state === "in") return {kind: "live", text: score + " (" + detail + ")"};
     return {kind: "final", text: score + " (" + (t.completed ? "FINAL" : detail) + ")"};
@@ -44,7 +44,8 @@
         return {label: l[1], items: (j.events || []).map(one).filter(Boolean)};
       }).catch(function () { return {label: l[1], items: []}; });
     })).then(function (groups) {
-      var html = row(groups, ["live", "next"], "LIVE", "livebar") + row(groups, ["final"], "FINAL", "finalbar");
+      var hasLive = groups.some(function (g) { return g.items.some(function (it) { return it.kind === "live"; }); });
+      var html = (hasLive ? row(groups, ["live"], "LIVE", "livebar") : row(groups, ["next"], "NEXT", "livebar")) + row(groups, ["final"], "FINAL", "finalbar");
       if (!html) { el.style.display = "none"; return; }
       el.style.display = "block";
       el.innerHTML = html;
