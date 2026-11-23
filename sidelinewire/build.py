@@ -218,12 +218,15 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--fixtures", help="directory of local .xml files instead of network (testing)")
     ap.add_argument("--out", default=str(ROOT / "public" / "index.html"))
+    ap.add_argument("--reuse", help="items.json from a previous run: re-render without fetching")
     args = ap.parse_args()
     cfg = load_config()
     feeds = json.load(open(ROOT / "feeds.json"))["feeds"]
     now = datetime.now(timezone.utc)
 
-    if args.fixtures:
+    if args.reuse:
+        results = []
+    elif args.fixtures:
         results = []
         for f in sorted(Path(args.fixtures).glob("*.xml")):
             feed = {"name": f.stem.replace("_", " "), "url": str(f), "tag": "general", "w": 1.0}
@@ -252,9 +255,18 @@ def main():
         report.append({"name": feed["name"], "url": feed["url"], "ok": err is None and len(its) > 0,
                        "items": len(its), "fresh": len(fresh), "error": err, "secs": secs})
         items += fresh
+    fetched = now
+    if args.reuse:
+        data = json.load(open(args.reuse))
+        report = data["report"]
+        items = [dict(i, date=parse_date(i["date"])) for i in data["items"]]
+        fetched = parse_date(data["fetched_at"]) or now
     ok = sum(1 for r in report if r["ok"])
     (ROOT / "feed_report.json").write_text(json.dumps(report, indent=1))
     print(f"feeds ok: {ok}/{len(report)}  items: {len(items)}", file=sys.stderr)
+    keep = Path(args.out).parent / "items.json"
+    keep.parent.mkdir(parents=True, exist_ok=True)
+    keep.write_text(json.dumps({"fetched_at": fetched.isoformat(), "report": report, "items": [dict({k: v for k, v in i.items() if not k.startswith("_")}, date=i["date"].isoformat() if i["date"] else None) for i in items]}))
     if len(items) < cfg.get("min_items", 20):
         print("Too few items; refusing to overwrite the page.", file=sys.stderr); sys.exit(2)
 
@@ -326,7 +338,7 @@ def main():
         cols.append(items_)
     lead = top[0] if top else {"link": "#"}
     lead_img = pick_lead_image(cfg, lead)
-    page = render(cfg, cols, lead, top, topleft, {"ok": ok, "total": len(report), "clusters": len(clusters)}, now, lead_img)
+    page = render(cfg, cols, lead, top, topleft, {"ok": ok, "total": len(report), "clusters": len(clusters)}, fetched, lead_img)
     out = Path(args.out); out.parent.mkdir(parents=True, exist_ok=True); out.write_text(page)
     print(f"wrote {out} ({len(page)//1024} KB)", file=sys.stderr)
 
