@@ -28,7 +28,13 @@ jobs:
         with:
           python-version: "3.12"
       - name: Build page
-        run: python build.py
+        run: |
+          if [ "${{ github.event_name }}" = "push" ] && curl -fsS --max-time 30 -o items.json https://ctidmississippi.github.io/sportsdrudge/items.json; then
+            echo "Reusing last fetch (code-only push)"
+            python build.py --reuse items.json || python build.py
+          else
+            python build.py
+          fi
       - name: Publish feed report
         if: always()
         run: cp feed_report.json public/feed_report.json || true
