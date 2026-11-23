@@ -6,7 +6,7 @@
  "half_life_hours": 14,
  "cluster_threshold": 0.55,
  "headline_lines": 2,
- "hot_sources": 5,
+ "hot_sources": 12,
  "items_per_column": 36,
  "min_items": 20,
  "timeout": 15,
