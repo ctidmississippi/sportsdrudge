@@ -196,7 +196,7 @@ def render(cfg, cols, lead, big, topleft, stats, now, lead_img="", media=None):
 <div class="cols">
 {''.join(f'<div class="col">{c}</div>' for c in colhtml)}
 </div>
-<div class="foot">{stamp} · {stats['ok']} of {stats['total']} sources reporting · {stats['clusters']} stories ranked. Headlines link to the original outlets; hover one to see which outlets ran it.</div>
+<div class="foot">{stamp} · {stats['ok']} of {stats['total']} sources reporting. Headlines link to the original outlets.</div>
 <script>{js}</script>
 </body></html>"""
 
@@ -298,7 +298,7 @@ def main():
         return {"link": r["link"], "text": clean_title(r["title"], maxlen), "cluster": c["items"], "n": c["n"], "sport": c["sport"], "hot": False}
 
     def short_pick(c, maxlen):
-        cand = [i for i in c["items"] if 28 <= len(clean_title(i["title"], 400)) <= maxlen and len(i["title"].split()) >= 4]
+        cand = [i for i in c["items"] if 28 <= len(clean_title(i["title"], 400)) <= maxlen and len(i["title"].split()) >= 4 and not (maxlen <= 62 and re.search(r"\b\d{1,3}-\d{1,3}\b", i["title"]))]
         return sorted(cand, key=lambda i: (-i["w"], len(i["title"])))[0] if cand else None
 
     nh = cfg.get("headline_lines", 2)
