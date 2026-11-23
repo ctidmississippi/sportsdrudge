@@ -21,9 +21,15 @@ a:hover{color:#00c}
 @media(max-width:760px){.cols{display:block}.col{border:0;padding:0 8px}.hl{font-size:24px;line-height:30px}.logo{font-size:44px}}
 
 /* live scores ticker */
-#ticker{display:none;overflow:hidden;white-space:nowrap;background:#fff;border-top:2px solid #000;border-bottom:2px solid #000;font:bold 13px "Courier New",monospace;padding:4px 0;margin:0 0 8px}
+#ticker{display:none;background:#fff;border-top:2px solid #000;border-bottom:2px solid #000;font:bold 13px "Courier New",monospace;margin:0 0 8px}
+#ticker .row{display:flex;align-items:stretch;border-bottom:1px solid #000}
+#ticker .row:last-child{border-bottom:0}
+#ticker .badge{flex:none;width:52px;text-align:center;color:#fff;padding:4px 0;letter-spacing:1px}
+#ticker .livebar .badge{background:#c00}
+#ticker .finalbar .badge{background:#000}
+#ticker .win{flex:1;overflow:hidden;white-space:nowrap;padding:4px 0}
 #ticker .track{display:inline-block;padding-left:100%;animation:tk 60s linear infinite}
-#ticker:hover .track{animation-play-state:paused}
+#ticker .row:hover .track{animation-play-state:paused}
 #ticker .live{color:#c00}
 #ticker .lg{background:#000;color:#fff;padding:0 5px;margin:0 6px}
 @keyframes tk{from{transform:translateX(0)}to{transform:translateX(-100%)}}
