@@ -151,6 +151,8 @@ def clean_title(t, maxlen=110):
 
 def render(cfg, cols, lead, big, topleft, stats, now, lead_img=""):
     css = (ROOT / "style.css").read_text()
+    jsf = ROOT / "ticker.js"
+    js = jsf.read_text() if jsf.exists() else ""
     img = f'<div class="lead"><a href="{html.escape(lead["link"])}"><img src="{lead_img}" alt=""></a></div>' if lead_img else ""
     def a(it, cls="", n=None):
         srcs = sorted({i["source"] for i in it["cluster"]})
@@ -172,6 +174,7 @@ def render(cfg, cols, lead, big, topleft, stats, now, lead_img=""):
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(cfg['site_name'])}</title>
 <style>{css}</style></head><body>
+<div id="ticker"></div>
 <div class="tl">
 {tl}
 </div>
@@ -184,6 +187,7 @@ def render(cfg, cols, lead, big, topleft, stats, now, lead_img=""):
 {''.join(f'<div class="col">{c}</div>' for c in colhtml)}
 </div>
 <div class="foot">{stamp} · {stats['ok']} of {stats['total']} sources reporting · {stats['clusters']} stories ranked. Headlines link to the original outlets; hover one to see which outlets ran it.</div>
+<script>{js}</script>
 </body></html>"""
 
 # ---------- lead image ----------
