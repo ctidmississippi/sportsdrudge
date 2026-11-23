@@ -1,5 +1,5 @@
 {
- "site_name": "Sideline Wire",
+ "site_name": "Pregame Notes",
  "lead_image": "assets/lead.jpg",
  "utc_offset": -6,
  "max_age_hours": 40,
@@ -24,11 +24,13 @@
   ],
   [
    "soccer",
-   "other",
-   "media"
+   "other"
   ]
  ],
  "lead_min_sources": 3,
  "lead_min_weight": 1,
- "gn_delay": 2
+ "gn_delay": 2,
+ "media_items": 8,
+ "site_description": "The day's biggest sports headlines from nearly 300 outlets, ranked and refreshed every morning.",
+ "site_url": "https://ctidmississippi.github.io/sportsdrudge/"
 }
