@@ -33,3 +33,8 @@ a:hover{color:#00c}
 #ticker .live{color:#c00}
 #ticker .lg{background:#000;color:#fff;padding:0 5px;margin:0 6px}
 @keyframes tk{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+/* sports media block */
+.media{border:2px solid #000;margin:10px 0;padding:6px 10px;column-count:2;column-gap:24px}
+.media .mh{display:block;column-span:all;background:#000;color:#fff;font-weight:bold;letter-spacing:1px;padding:2px 8px;margin:-6px -10px 8px}
+.media a{display:block;margin:0 0 6px;break-inside:avoid}
+@media(max-width:700px){.media{column-count:1}#ticker{font-size:12px}#ticker .badge{width:44px;font-size:11px}}
