@@ -17,33 +17,37 @@
     (c.competitors || []).forEach(function (x) { if (x.homeAway === "home") h = x; else a = x; });
     if (!h || !a) return null;
     var detail = t.shortDetail || "";
-    if (t.state === "pre") return {rank: 2, live: false, text: name(a) + " at " + name(h) + " (" + detail + ")"};
+    if (t.state === "pre") return {kind: "next", text: name(a) + " at " + name(h) + " (" + detail + ")"};
     var score = name(a) + " " + a.score + ", " + name(h) + " " + h.score;
-    if (t.state === "in") return {rank: 0, live: true, text: score + " (" + detail + ")"};
-    return {rank: 1, live: false, text: score + " (" + (t.completed ? "FINAL" : detail) + ")"};
+    if (t.state === "in") return {kind: "live", text: score + " (" + detail + ")"};
+    return {kind: "final", text: score + " (" + (t.completed ? "FINAL" : detail) + ")"};
+  }
+  function row(groups, kinds, badge, cls) {
+    var html = "", n = 0;
+    groups.forEach(function (g) {
+      var items = [];
+      kinds.forEach(function (k) { g.items.forEach(function (it) { if (it.kind === k) items.push(it); }); });
+      if (!items.length) return;
+      html += '<span class="lg">' + esc(g.label) + "</span>";
+      items.forEach(function (it) {
+        n++;
+        html += '<span class="' + (it.kind === "live" ? "live" : "") + '">' + esc(it.text) + "</span> &nbsp;|&nbsp; ";
+      });
+    });
+    if (!n) return "";
+    var dur = Math.max(40, Math.round(html.length / 18));
+    return '<div class="row ' + cls + '"><span class="badge">' + badge + '</span><div class="win"><div class="track" style="animation-duration:' + dur + 's">' + html + "</div></div></div>";
   }
   function load() {
     Promise.all(LEAGUES.map(function (l) {
       return fetch(BASE + l[0] + "/scoreboard").then(function (r) { return r.json(); }).then(function (j) {
-        var items = (j.events || []).map(one).filter(Boolean);
-        items.sort(function (x, y) { return x.rank - y.rank; });
-        return {label: l[1], items: items};
+        return {label: l[1], items: (j.events || []).map(one).filter(Boolean)};
       }).catch(function () { return {label: l[1], items: []}; });
     })).then(function (groups) {
-      var html = "", n = 0;
-      groups.forEach(function (g) {
-        if (!g.items.length) return;
-        html += '<span class="lg">' + esc(g.label) + "</span>";
-        g.items.forEach(function (it) {
-          n++;
-          html += '<span class="' + (it.live ? "live" : "") + '">' + esc(it.text) + "</span> &nbsp;|&nbsp; ";
-        });
-      });
-      if (!n) { el.style.display = "none"; return; }
+      var html = row(groups, ["live", "next"], "LIVE", "livebar") + row(groups, ["final"], "FINAL", "finalbar");
+      if (!html) { el.style.display = "none"; return; }
       el.style.display = "block";
-      el.innerHTML = '<div class="track">' + html + "</div>";
-      var tr = el.firstChild;
-      tr.style.animationDuration = Math.max(40, Math.round(html.length / 18)) + "s";
+      el.innerHTML = html;
     });
   }
   load();
