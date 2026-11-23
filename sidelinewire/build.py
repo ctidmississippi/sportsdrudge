@@ -149,7 +149,7 @@ def clean_title(t, maxlen=110):
     if len(t) > maxlen: t = t[:maxlen].rsplit(" ", 1)[0]
     return t
 
-def render(cfg, cols, lead, big, topleft, stats, now, lead_img=""):
+def render(cfg, cols, lead, big, topleft, stats, now, lead_img="", media=None):
     css = (ROOT / "style.css").read_text()
     jsf = ROOT / "ticker.js"
     js = jsf.read_text() if jsf.exists() else ""
@@ -160,6 +160,10 @@ def render(cfg, cols, lead, big, topleft, stats, now, lead_img=""):
         return f'<a class="{cls}" href="{html.escape(it["link"])}" title="{html.escape(tip)}" rel="noopener">{html.escape(it["text"])}</a>'
     tl = "\n".join(a(i) for i in topleft)
     hl = "\n".join(a(i) for i in big)
+    desc = html.escape(cfg.get("site_description", ""))
+    site = html.escape(cfg["site_name"])
+    surl = html.escape(cfg.get("site_url", ""))
+    mediahtml = ('<div class="media"><span class="mh">SPORTS MEDIA</span>' + "\n".join(a(i) for i in media) + "</div>") if media else ""
     colhtml = []
     for col in cols:
         out = []
@@ -172,7 +176,12 @@ def render(cfg, cols, lead, big, topleft, stats, now, lead_img=""):
     stamp = local.strftime("%A, %B %-d, %Y · updated %-I:%M %p")
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{html.escape(cfg['site_name'])}</title>
+<title>{site}</title>
+<meta name="description" content="{desc}">
+<meta property="og:type" content="website"><meta property="og:title" content="{site}"><meta property="og:description" content="{desc}"><meta property="og:url" content="{surl}">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="{site}"><meta name="twitter:description" content="{desc}">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23c00'/%3E%3Ctext x='32' y='46' font-size='40' font-weight='bold' text-anchor='middle' fill='white' font-family='Arial'%3EP%3C/text%3E%3C/svg%3E">
 <style>{css}</style></head><body>
 <div id="ticker"></div>
 <div class="tl">
@@ -183,6 +192,7 @@ def render(cfg, cols, lead, big, topleft, stats, now, lead_img=""):
 {hl}
 </div>
 <div class="logo">{html.escape(cfg['site_name'].upper())}</div>
+{mediahtml}
 <div class="cols">
 {''.join(f'<div class="col">{c}</div>' for c in colhtml)}
 </div>
@@ -316,6 +326,12 @@ def main():
     for t in top: t["text"] = t["text"].upper()
     for t in topleft: t["text"] = t["text"].upper() + "..."
     rest = [c for c in clusters if id(c) not in used]
+    mcl = [c for c in rest if c["sport"] == "media"][: cfg.get("media_items", 8)]
+    mused = {id(c) for c in mcl}
+    rest = [c for c in rest if id(c) not in mused]
+    media = []
+    for c in mcl:
+        m = mk(c); m["text"] += "..."; media.append(m)
 
     groups = cfg["columns"]  # list of lists of sport keys
     per = cfg.get("items_per_column", 36)
@@ -338,7 +354,7 @@ def main():
         cols.append(items_)
     lead = top[0] if top else {"link": "#"}
     lead_img = pick_lead_image(cfg, lead)
-    page = render(cfg, cols, lead, top, topleft, {"ok": ok, "total": len(report), "clusters": len(clusters)}, fetched, lead_img)
+    page = render(cfg, cols, lead, top, topleft, {"ok": ok, "total": len(report), "clusters": len(clusters)}, fetched, lead_img, media)
     out = Path(args.out); out.parent.mkdir(parents=True, exist_ok=True); out.write_text(page)
     print(f"wrote {out} ({len(page)//1024} KB)", file=sys.stderr)
 
