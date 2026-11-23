@@ -298,7 +298,7 @@ def main():
         return {"link": r["link"], "text": clean_title(r["title"], maxlen), "cluster": c["items"], "n": c["n"], "sport": c["sport"], "hot": False}
 
     def short_pick(c, maxlen):
-        cand = [i for i in c["items"] if len(clean_title(i["title"], 400)) <= maxlen]
+        cand = [i for i in c["items"] if 28 <= len(clean_title(i["title"], 400)) <= maxlen and len(i["title"].split()) >= 4]
         return sorted(cand, key=lambda i: (-i["w"], len(i["title"])))[0] if cand else None
 
     nh = cfg.get("headline_lines", 2)
