@@ -38,3 +38,6 @@ a:hover{color:#00c}
 .media .mh{display:block;column-span:all;background:#000;color:#fff;font-weight:bold;letter-spacing:1px;padding:2px 8px;margin:-6px -10px 8px}
 .media a{display:block;margin:0 0 6px;break-inside:avoid}
 @media(max-width:700px){.media{column-count:1}#ticker{font-size:12px}#ticker .badge{width:44px;font-size:11px}}
+#ticker .nextbar .badge{background:#666}
+#ticker .livebar{background:#fff0f0}
+#ticker .livebar .live{font-weight:bold}
