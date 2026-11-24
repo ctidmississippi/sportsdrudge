@@ -164,13 +164,11 @@ def render(cfg, cols, lead, big, topleft, stats, now, lead_img="", media=None):
     site = html.escape(cfg["site_name"])
     surl = html.escape(cfg.get("site_url", ""))
     mediahtml = ('<div class="media"><span class="mh">SPORTS MEDIA</span>' + "\n".join(a(i) for i in media) + "</div>") if media else ""
-    LABELS = {"nfl": "NFL", "cfb": "COLLEGE FOOTBALL", "nba": "NBA", "cbb": "COLLEGE BASKETBALL", "nhl": "NHL", "mlb": "MLB", "soccer": "SOCCER", "other": "MORE SPORTS"}
     colhtml = []
     for col in cols:
-        out = []; prev = None
+        out = []
         for k, it in enumerate(col):
-            if it.get("sport") != prev:
-                out.append('<span class="sh">' + LABELS.get(it.get("sport"), str(it.get("sport")).upper()) + "</span>"); prev = it.get("sport")
+            if k and k % 3 == 0: out.append("<hr>")
             cls = ("hot " if it.get("hot") else "") + ("it" if k % 2 else "")
             out.append(a(it, cls.strip()))
         colhtml.append("\n".join(out))
@@ -348,7 +346,6 @@ def main():
             cnt[c["sport"]] = cnt.get(c["sport"], 0) + 1
             col.append(c)
             if len(col) >= per: break
-        col.sort(key=lambda c: g.index(c["sport"]))
         items_ = []
         for k, c in enumerate(col):
             m = mk(c); m["text"] += "..."
