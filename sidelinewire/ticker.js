@@ -45,7 +45,7 @@
       }).catch(function () { return {label: l[1], items: []}; });
     })).then(function (groups) {
       var hasLive = groups.some(function (g) { return g.items.some(function (it) { return it.kind === "live"; }); });
-      var html = (hasLive ? row(groups, ["live"], "LIVE", "livebar") : row(groups, ["next"], "NEXT", "livebar")) + row(groups, ["final"], "FINAL", "finalbar");
+      var html = (hasLive ? row(groups, ["live"], "LIVE", "livebar") : row(groups, ["next"], "NEXT", "nextbar")) + row(groups, ["final"], "FINAL", "finalbar");
       if (!html) { el.style.display = "none"; return; }
       el.style.display = "block";
       el.innerHTML = html;
