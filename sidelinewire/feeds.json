@@ -294,5 +294,20 @@
 {"name":"Athletic MLB","url":"https://news.google.com/rss/search?q=site%3Anytimes.com%20athletic%20baseball%20when%3A1d&hl=en-US&gl=US&ceid=US:en","tag":"mlb","w":1.2},
 {"name":"Athletic College","url":"https://news.google.com/rss/search?q=site%3Anytimes.com%20athletic%20college%20football%20when%3A1d&hl=en-US&gl=US&ceid=US:en","tag":"cfb","w":1.2},
 {"name":"Athletic NHL","url":"https://news.google.com/rss/search?q=site%3Anytimes.com%20athletic%20nhl%20when%3A1d&hl=en-US&gl=US&ceid=US:en","tag":"nhl","w":1.2},
-{"name":"Athletic Golf","url":"https://news.google.com/rss/search?q=site%3Anytimes.com%20athletic%20golf%20when%3A1d&hl=en-US&gl=US&ceid=US:en","tag":"other","w":1.2}
+{"name":"Athletic Golf","url":"https://news.google.com/rss/search?q=site%3Anytimes.com%20athletic%20golf%20when%3A1d&hl=en-US&gl=US&ceid=US:en","tag":"other","w":1.2},
+{"name":"Track & Field Search","url":"https://news.google.com/rss/search?q=(%22track%20and%20field%22%20OR%20%22world%20athletics%22%20OR%20marathon%20OR%20sprinter%20OR%20%22diamond%20league%22)%20when%3A2d&hl=en-US&gl=US&ceid=US:en","tag":"other","w":1},
+{"name":"Swimming Search","url":"https://news.google.com/rss/search?q=(swimming%20OR%20swimmer%20OR%20%22world%20aquatics%22)%20when%3A3d&hl=en-US&gl=US&ceid=US:en","tag":"other","w":1},
+{"name":"Gymnastics Search","url":"https://news.google.com/rss/search?q=(gymnastics%20OR%20gymnast)%20when%3A3d&hl=en-US&gl=US&ceid=US:en","tag":"other","w":1},
+{"name":"Cycling Search","url":"https://news.google.com/rss/search?q=(cycling%20OR%20%22tour%20de%20france%22%20OR%20cyclist%20OR%20%22grand%20tour%22)%20when%3A3d&hl=en-US&gl=US&ceid=US:en","tag":"other","w":1},
+{"name":"Rugby Search","url":"https://news.google.com/rss/search?q=(rugby%20OR%20%22six%20nations%22%20OR%20%22rugby%20championship%22)%20when%3A2d&hl=en-US&gl=US&ceid=US:en","tag":"other","w":1},
+{"name":"Cricket Search","url":"https://news.google.com/rss/search?q=(cricket%20OR%20%22the%20ashes%22%20OR%20IPL%20OR%20%22test%20match%22)%20when%3A2d&hl=en-US&gl=US&ceid=US:en","tag":"other","w":1},
+{"name":"MMA Boxing Search","url":"https://news.google.com/rss/search?q=(UFC%20OR%20MMA%20OR%20boxing%20OR%20%22title%20fight%22)%20when%3A2d&hl=en-US&gl=US&ceid=US:en","tag":"other","w":1},
+{"name":"Olympics Search","url":"https://news.google.com/rss/search?q=(olympics%20OR%20olympic%20OR%20IOC%20OR%20%22winter%20olympics%22)%20when%3A3d&hl=en-US&gl=US&ceid=US:en","tag":"other","w":1},
+{"name":"Volleyball Search","url":"https://news.google.com/rss/search?q=(volleyball%20OR%20%22pro%20volleyball%22)%20when%3A3d&hl=en-US&gl=US&ceid=US:en","tag":"other","w":1},
+{"name":"WNBA NWSL Search","url":"https://news.google.com/rss/search?q=(WNBA%20OR%20NWSL%20OR%20%22women%27s%20sports%22)%20when%3A2d&hl=en-US&gl=US&ceid=US:en","tag":"other","w":1},
+{"name":"Motorsport Search","url":"https://news.google.com/rss/search?q=(F1%20OR%20%22formula%201%22%20OR%20NASCAR%20OR%20IndyCar%20OR%20MotoGP)%20when%3A2d&hl=en-US&gl=US&ceid=US:en","tag":"other","w":1},
+{"name":"Tennis Search","url":"https://news.google.com/rss/search?q=(tennis%20OR%20ATP%20OR%20WTA%20OR%20%22grand%20slam%22)%20when%3A2d&hl=en-US&gl=US&ceid=US:en","tag":"other","w":1},
+{"name":"Golf Search","url":"https://news.google.com/rss/search?q=(golf%20OR%20PGA%20OR%20LPGA%20OR%20%22DP%20World%20Tour%22)%20when%3A2d&hl=en-US&gl=US&ceid=US:en","tag":"other","w":1},
+{"name":"Lacrosse Wrestling Search","url":"https://news.google.com/rss/search?q=(lacrosse%20OR%20wrestling%20OR%20%22college%20softball%22)%20when%3A3d&hl=en-US&gl=US&ceid=US:en","tag":"other","w":1},
+{"name":"Skiing Hockey Intl Search","url":"https://news.google.com/rss/search?q=(skiing%20OR%20biathlon%20OR%20%22figure%20skating%22%20OR%20%22speed%20skating%22%20OR%20curling)%20when%3A3d&hl=en-US&gl=US&ceid=US:en","tag":"other","w":1}
 ]}
