@@ -1,5 +1,29 @@
 [
- {"keywords": ["sonny gray"], "file": "assets/leads/twins.jpg"},
- {"keywords": ["georgia", "bulldogs", "sanford stadium"], "file": "assets/leads/uga.jpg"},
- {"keywords": ["twins"], "file": "assets/leads/twins.jpg"}
+ {
+  "keywords": [
+   "49ers",
+   "niners"
+  ],
+  "file": "assets/leads/49ers.jpg"
+ },
+ {
+  "keywords": [
+   "sonny gray"
+  ],
+  "file": "assets/leads/twins.jpg"
+ },
+ {
+  "keywords": [
+   "georgia",
+   "bulldogs",
+   "sanford stadium"
+  ],
+  "file": "assets/leads/uga.jpg"
+ },
+ {
+  "keywords": [
+   "twins"
+  ],
+  "file": "assets/leads/twins.jpg"
+ }
 ]
