@@ -2,7 +2,7 @@ name: Update front page
 
 on:
   schedule:
-    - cron: "0 5,11,17,23 * * *"
+    - cron: "0 1,4,6,12,18,22 * * *"
   workflow_dispatch:
   push:
     branches: [main]
