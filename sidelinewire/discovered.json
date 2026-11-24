@@ -1,0 +1,2521 @@
+[
+{
+"name": "AP News",
+"tag": "general",
+"w": 1.4,
+"domain": "apnews.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "ESPN",
+"tag": "general",
+"w": 1.4,
+"domain": "espn.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "ESPN NFL",
+"tag": "nfl",
+"w": 1.3,
+"domain": "espn.com/nfl",
+"extra": "",
+"candidates": []
+},
+{
+"name": "ESPN NBA",
+"tag": "nba",
+"w": 1.3,
+"domain": "espn.com/nba",
+"extra": "",
+"candidates": []
+},
+{
+"name": "ESPN MLB",
+"tag": "mlb",
+"w": 1.3,
+"domain": "espn.com/mlb",
+"extra": "",
+"candidates": []
+},
+{
+"name": "ESPN NHL",
+"tag": "nhl",
+"w": 1.3,
+"domain": "espn.com/nhl",
+"extra": "",
+"candidates": []
+},
+{
+"name": "ESPN College Football",
+"tag": "cfb",
+"w": 1.3,
+"domain": "espn.com/college-football",
+"extra": "",
+"candidates": []
+},
+{
+"name": "ESPN College Basketball",
+"tag": "cbb",
+"w": 1.3,
+"domain": "espn.com/mens-college-basketball",
+"extra": "",
+"candidates": []
+},
+{
+"name": "ESPN Soccer",
+"tag": "soccer",
+"w": 1.3,
+"domain": "espn.com/soccer",
+"extra": "",
+"candidates": []
+},
+{
+"name": "NBC Sports",
+"tag": "general",
+"w": 1.1,
+"domain": "nbcsports.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.nbcsports.com/index.atom",
+"items": 4,
+"newest_age_h": 0.3
+}
+]
+},
+{
+"name": "Sports Illustrated",
+"tag": "general",
+"w": 1.1,
+"domain": "si.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.si.com/feed",
+"items": 89,
+"newest_age_h": 0.4
+},
+{
+"url": "https://si.com/feed",
+"items": 89,
+"newest_age_h": 0.4
+},
+{
+"url": "https://si.com/feed/",
+"items": 89,
+"newest_age_h": 0.0
+}
+]
+},
+{
+"name": "Bleacher Report",
+"tag": "general",
+"w": 1,
+"domain": "bleacherreport.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "USA Today Sports",
+"tag": "general",
+"w": 1.2,
+"domain": "usatoday.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Reuters Sports",
+"tag": "general",
+"w": 1.3,
+"domain": "reuters.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "The Ringer",
+"tag": "media",
+"w": 1.1,
+"domain": "theringer.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "NFL.com",
+"tag": "nfl",
+"w": 1.1,
+"domain": "nfl.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "NHL.com",
+"tag": "nhl",
+"w": 1.1,
+"domain": "nhl.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "TSN",
+"tag": "nhl",
+"w": 0.9,
+"domain": "tsn.ca",
+"extra": "",
+"candidates": []
+},
+{
+"name": "The Hockey News",
+"tag": "nhl",
+"w": 1,
+"domain": "thehockeynews.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://thehockeynews.com/rss/THNHOME/full",
+"items": 50,
+"newest_age_h": 1.3
+},
+{
+"url": "https://thehockeynews.com/feed/THNHOME/full.xml",
+"items": 25,
+"newest_age_h": 1.3
+},
+{
+"url": "https://thehockeynews.com/feed",
+"items": 50,
+"newest_age_h": 1.3
+},
+{
+"url": "https://thehockeynews.com/feed/",
+"items": 50,
+"newest_age_h": 1.3
+}
+]
+},
+{
+"name": "HoopsHype",
+"tag": "nba",
+"w": 1,
+"domain": "hoopshype.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Slam",
+"tag": "nba",
+"w": 0.8,
+"domain": "slamonline.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Arrowhead Pride",
+"tag": "nfl",
+"w": 0.7,
+"domain": "arrowheadpride.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://arrowheadpride.com/rss/index.xml",
+"items": 10,
+"newest_age_h": 4.5
+}
+]
+},
+{
+"name": "Bleeding Green Nation",
+"tag": "nfl",
+"w": 0.7,
+"domain": "bleedinggreennation.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://bleedinggreennation.com/rss/index.xml",
+"items": 10,
+"newest_age_h": 2.2
+}
+]
+},
+{
+"name": "Golf Channel",
+"tag": "other",
+"w": 0.9,
+"domain": "golfchannel.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "PGA Tour",
+"tag": "other",
+"w": 0.8,
+"domain": "pgatour.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Tennis.com",
+"tag": "other",
+"w": 0.9,
+"domain": "tennis.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "ATP Tour",
+"tag": "other",
+"w": 0.8,
+"domain": "atptour.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "WTA Tour",
+"tag": "other",
+"w": 0.8,
+"domain": "wtatennis.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "NASCAR.com",
+"tag": "other",
+"w": 0.8,
+"domain": "nascar.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "MMA Fighting",
+"tag": "other",
+"w": 0.9,
+"domain": "mmafighting.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://mmafighting.com/rss/index.xml",
+"items": 10,
+"newest_age_h": 1.5
+}
+]
+},
+{
+"name": "MMA Junkie",
+"tag": "other",
+"w": 0.9,
+"domain": "mmajunkie.usatoday.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Boxing Scene",
+"tag": "other",
+"w": 0.8,
+"domain": "boxingscene.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.boxingscene.com/feed",
+"items": 50,
+"newest_age_h": 7.2
+},
+{
+"url": "https://boxingscene.com/feed",
+"items": 50,
+"newest_age_h": 7.2
+},
+{
+"url": "https://boxingscene.com/feed/",
+"items": 50,
+"newest_age_h": 7.2
+},
+{
+"url": "https://boxingscene.com/rss",
+"items": 50,
+"newest_age_h": 7.2
+}
+]
+},
+{
+"name": "Goal.com",
+"tag": "soccer",
+"w": 0.9,
+"domain": "goal.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "MLSsoccer.com",
+"tag": "soccer",
+"w": 0.9,
+"domain": "mlssoccer.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Chicago Tribune Sports",
+"tag": "general",
+"w": 0.8,
+"domain": "chicagotribune.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "NY Daily News Sports",
+"tag": "general",
+"w": 0.8,
+"domain": "nydailynews.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Houston Chronicle Sports",
+"tag": "general",
+"w": 0.8,
+"domain": "houstonchronicle.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Detroit Free Press Sports",
+"tag": "general",
+"w": 0.8,
+"domain": "freep.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Seattle Times Sports",
+"tag": "general",
+"w": 0.8,
+"domain": "seattletimes.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Dallas Morning News Sports",
+"tag": "general",
+"w": 0.8,
+"domain": "dallasnews.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "New York Times Sports",
+"tag": "general",
+"w": 1.3,
+"domain": "nytimes.com/athletic",
+"extra": "",
+"candidates": []
+},
+{
+"name": "New York Times",
+"tag": "general",
+"w": 1.2,
+"domain": "nytimes.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Washington Post Sports",
+"tag": "general",
+"w": 1.2,
+"domain": "washingtonpost.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Wall Street Journal",
+"tag": "general",
+"w": 1.1,
+"domain": "wsj.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Newsday",
+"tag": "general",
+"w": 0.8,
+"domain": "newsday.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Boston Herald",
+"tag": "general",
+"w": 0.8,
+"domain": "bostonherald.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Boston.com",
+"tag": "general",
+"w": 0.7,
+"domain": "boston.com/sports",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.boston.com/feed/",
+"items": 10,
+"newest_age_h": 0.1
+},
+{
+"url": "https://boston.com/feed",
+"items": 10,
+"newest_age_h": 0.1
+},
+{
+"url": "https://boston.com/feed/",
+"items": 10,
+"newest_age_h": 0.1
+},
+{
+"url": "https://boston.com/rss",
+"items": 10,
+"newest_age_h": 0.1
+}
+]
+},
+{
+"name": "Chicago Sun-Times",
+"tag": "general",
+"w": 0.85,
+"domain": "chicago.suntimes.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Fort Worth Star-Telegram",
+"tag": "general",
+"w": 0.8,
+"domain": "star-telegram.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "San Antonio Express-News",
+"tag": "general",
+"w": 0.8,
+"domain": "expressnews.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Austin American-Statesman",
+"tag": "general",
+"w": 0.8,
+"domain": "statesman.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Atlanta Journal-Constitution",
+"tag": "general",
+"w": 0.9,
+"domain": "ajc.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Miami Herald",
+"tag": "general",
+"w": 0.9,
+"domain": "miamiherald.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "South Florida Sun Sentinel",
+"tag": "general",
+"w": 0.8,
+"domain": "sun-sentinel.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Orlando Sentinel",
+"tag": "general",
+"w": 0.8,
+"domain": "orlandosentinel.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Tampa Bay Times",
+"tag": "general",
+"w": 0.9,
+"domain": "tampabay.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Florida Times-Union",
+"tag": "general",
+"w": 0.7,
+"domain": "jacksonville.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Tennessean",
+"tag": "general",
+"w": 0.8,
+"domain": "tennessean.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Memphis Commercial Appeal",
+"tag": "general",
+"w": 0.7,
+"domain": "commercialappeal.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Louisville Courier Journal",
+"tag": "general",
+"w": 0.8,
+"domain": "courier-journal.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Cincinnati Enquirer",
+"tag": "general",
+"w": 0.8,
+"domain": "cincinnati.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Columbus Dispatch",
+"tag": "general",
+"w": 0.8,
+"domain": "dispatch.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Pittsburgh Post-Gazette",
+"tag": "general",
+"w": 0.9,
+"domain": "post-gazette.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Philadelphia Inquirer",
+"tag": "general",
+"w": 0.95,
+"domain": "inquirer.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "NJ.com",
+"tag": "general",
+"w": 0.8,
+"domain": "nj.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Baltimore Sun",
+"tag": "general",
+"w": 0.85,
+"domain": "baltimoresun.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "PennLive",
+"tag": "general",
+"w": 0.7,
+"domain": "pennlive.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Minneapolis Star Tribune",
+"tag": "general",
+"w": 0.9,
+"domain": "startribune.com/sports",
+"extra": "",
+"candidates": [
+{
+"url": "https://startribune.com/rss",
+"items": 10,
+"newest_age_h": 0.5
+}
+]
+},
+{
+"name": "Milwaukee Journal Sentinel",
+"tag": "general",
+"w": 0.85,
+"domain": "jsonline.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Detroit News",
+"tag": "general",
+"w": 0.85,
+"domain": "detroitnews.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Indianapolis Star",
+"tag": "general",
+"w": 0.8,
+"domain": "indystar.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Kansas City Star",
+"tag": "general",
+"w": 0.85,
+"domain": "kansascity.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "St. Louis Post-Dispatch",
+"tag": "general",
+"w": 0.85,
+"domain": "stltoday.com/sports",
+"extra": "",
+"candidates": [
+{
+"url": "http://www.stltoday.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc&k%5B%5D=%23topstory",
+"items": 50,
+"newest_age_h": 2719.8
+}
+]
+},
+{
+"name": "Denver Post",
+"tag": "general",
+"w": 0.9,
+"domain": "denverpost.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Arizona Republic",
+"tag": "general",
+"w": 0.8,
+"domain": "azcentral.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "The Oregonian",
+"tag": "general",
+"w": 0.8,
+"domain": "oregonlive.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "San Francisco Chronicle",
+"tag": "general",
+"w": 0.9,
+"domain": "sfchronicle.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Mercury News",
+"tag": "general",
+"w": 0.85,
+"domain": "mercurynews.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Sacramento Bee",
+"tag": "general",
+"w": 0.7,
+"domain": "sacbee.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Orange County Register",
+"tag": "general",
+"w": 0.75,
+"domain": "ocregister.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "San Diego Union-Tribune",
+"tag": "general",
+"w": 0.8,
+"domain": "sandiegouniontribune.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Las Vegas Review-Journal",
+"tag": "general",
+"w": 0.8,
+"domain": "reviewjournal.com/sports",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.reviewjournal.com/feed/",
+"items": 30,
+"newest_age_h": 0.4
+},
+{
+"url": "https://reviewjournal.com/feed/",
+"items": 30,
+"newest_age_h": 0.4
+}
+]
+},
+{
+"name": "Salt Lake Tribune",
+"tag": "general",
+"w": 0.7,
+"domain": "sltrib.com/sports",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.sltrib.com/arc/outboundfeeds/rss/?outputType=xml",
+"items": 36,
+"newest_age_h": 2.7
+}
+]
+},
+{
+"name": "Deseret News",
+"tag": "general",
+"w": 0.7,
+"domain": "deseret.com/sports",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.deseret.com/rss/latest.rss",
+"items": 20,
+"newest_age_h": 0.3
+}
+]
+},
+{
+"name": "NOLA.com",
+"tag": "general",
+"w": 0.8,
+"domain": "nola.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "AL.com",
+"tag": "general",
+"w": 0.85,
+"domain": "al.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Clarion Ledger",
+"tag": "general",
+"w": 0.75,
+"domain": "clarionledger.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Charlotte Observer",
+"tag": "general",
+"w": 0.8,
+"domain": "charlotteobserver.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Raleigh News & Observer",
+"tag": "general",
+"w": 0.8,
+"domain": "newsobserver.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Post and Courier",
+"tag": "general",
+"w": 0.75,
+"domain": "postandcourier.com/sports",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.postandcourier.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc&k%5B%5D=%23topstory",
+"items": 7,
+"newest_age_h": 1740.5
+}
+]
+},
+{
+"name": "The State",
+"tag": "general",
+"w": 0.7,
+"domain": "thestate.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Arkansas Democrat-Gazette",
+"tag": "general",
+"w": 0.75,
+"domain": "arkansasonline.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "The Oklahoman",
+"tag": "general",
+"w": 0.8,
+"domain": "oklahoman.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Omaha World-Herald",
+"tag": "general",
+"w": 0.7,
+"domain": "omaha.com/sports",
+"extra": "",
+"candidates": [
+{
+"url": "http://omaha.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc&k%5B%5D=%23topstory",
+"items": 36,
+"newest_age_h": 7708.0
+}
+]
+},
+{
+"name": "Des Moines Register",
+"tag": "general",
+"w": 0.75,
+"domain": "desmoinesregister.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Lexington Herald-Leader",
+"tag": "general",
+"w": 0.75,
+"domain": "kentucky.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Knoxville News Sentinel",
+"tag": "general",
+"w": 0.75,
+"domain": "knoxnews.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Syracuse.com",
+"tag": "general",
+"w": 0.7,
+"domain": "syracuse.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Buffalo News",
+"tag": "general",
+"w": 0.8,
+"domain": "buffalonews.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Hartford Courant",
+"tag": "general",
+"w": 0.7,
+"domain": "courant.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Providence Journal",
+"tag": "general",
+"w": 0.7,
+"domain": "providencejournal.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "Toronto Star",
+"tag": "general",
+"w": 0.8,
+"domain": "thestar.com/sports",
+"extra": "",
+"candidates": [
+{
+"url": "http://www.thestar.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc&k%5B%5D=%23topstory",
+"items": 50,
+"newest_age_h": 29526.7
+}
+]
+},
+{
+"name": "Globe and Mail",
+"tag": "general",
+"w": 0.9,
+"domain": "theglobeandmail.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Montreal Gazette",
+"tag": "general",
+"w": 0.7,
+"domain": "montrealgazette.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "National Post",
+"tag": "general",
+"w": 0.7,
+"domain": "nationalpost.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "The Telegraph Sport",
+"tag": "general",
+"w": 0.9,
+"domain": "telegraph.co.uk/sport",
+"extra": "",
+"candidates": [
+{
+"url": "https://telegraph.co.uk/rss",
+"items": 120,
+"newest_age_h": 1.7
+},
+{
+"url": "https://telegraph.co.uk/rss.xml",
+"items": 120,
+"newest_age_h": 1.7
+}
+]
+},
+{
+"name": "The Independent Sport",
+"tag": "general",
+"w": 0.9,
+"domain": "independent.co.uk/sport",
+"extra": "",
+"candidates": []
+},
+{
+"name": "The Times Sport",
+"tag": "general",
+"w": 0.9,
+"domain": "thetimes.com/sport",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Evening Standard Sport",
+"tag": "general",
+"w": 0.7,
+"domain": "standard.co.uk/sport",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.standard.co.uk/rss",
+"items": 100,
+"newest_age_h": 0.0
+},
+{
+"url": "https://standard.co.uk/rss",
+"items": 100,
+"newest_age_h": 0.0
+}
+]
+},
+{
+"name": "Sun Herald",
+"tag": "cfb",
+"w": 0.7,
+"domain": "sunherald.com/sports",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Hotty Toddy",
+"tag": "cfb",
+"w": 0.8,
+"domain": "hottytoddy.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.hottytoddy.com/feed/",
+"items": 10,
+"newest_age_h": 0.7
+},
+{
+"url": "https://www.hottytoddy.com/comments/feed/",
+"items": 10,
+"newest_age_h": 16738.7
+},
+{
+"url": "https://hottytoddy.com/feed",
+"items": 10,
+"newest_age_h": 0.7
+},
+{
+"url": "https://hottytoddy.com/feed/",
+"items": 10,
+"newest_age_h": 0.7
+}
+]
+},
+{
+"name": "Ole Miss Sports",
+"tag": "cfb",
+"w": 0.7,
+"domain": "olemisssports.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://olemisssports.com/rss",
+"items": 10,
+"newest_age_h": 3.5
+}
+]
+},
+{
+"name": "Hail State Sports",
+"tag": "cfb",
+"w": 0.6,
+"domain": "hailstate.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://hailstate.com/rss",
+"items": 10,
+"newest_age_h": 2.2
+}
+]
+},
+{
+"name": "247Sports",
+"tag": "cfb",
+"w": 0.9,
+"domain": "247sports.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Rivals",
+"tag": "cfb",
+"w": 0.8,
+"domain": "rivals.com",
+"extra": "football",
+"candidates": []
+},
+{
+"name": "NCAA.com",
+"tag": "general",
+"w": 0.9,
+"domain": "ncaa.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "SEC Sports",
+"tag": "cfb",
+"w": 0.8,
+"domain": "secsports.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Big Ten",
+"tag": "cfb",
+"w": 0.8,
+"domain": "bigten.org",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Big 12",
+"tag": "cfb",
+"w": 0.8,
+"domain": "big12sports.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "ACC",
+"tag": "cfb",
+"w": 0.8,
+"domain": "theacc.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Business of College Sports",
+"tag": "media",
+"w": 0.9,
+"domain": "businessofcollegesports.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Football Scoop",
+"tag": "cfb",
+"w": 0.8,
+"domain": "footballscoop.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://footballscoop.com/rss",
+"items": 10,
+"newest_age_h": 0.0
+}
+]
+},
+{
+"name": "Athlon Sports",
+"tag": "general",
+"w": 0.7,
+"domain": "athlonsports.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://athlonsports.com/rss",
+"items": 50,
+"newest_age_h": 0.0
+}
+]
+},
+{
+"name": "NBA.com",
+"tag": "nba",
+"w": 1.1,
+"domain": "nba.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "WNBA.com",
+"tag": "nba",
+"w": 0.8,
+"domain": "wnba.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Just Women's Sports",
+"tag": "other",
+"w": 0.9,
+"domain": "justwomenssports.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://justwomenssports.com/feed",
+"items": 10,
+"newest_age_h": 3.5
+},
+{
+"url": "https://justwomenssports.com/feed/",
+"items": 10,
+"newest_age_h": 3.5
+},
+{
+"url": "https://justwomenssports.com/rss",
+"items": 10,
+"newest_age_h": 3.5
+}
+]
+},
+{
+"name": "RealGM",
+"tag": "nba",
+"w": 0.8,
+"domain": "realgm.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Sportando",
+"tag": "nba",
+"w": 0.7,
+"domain": "sportando.basketball",
+"extra": "",
+"candidates": [
+{
+"url": "https://sportando.basketball/feed/",
+"items": 10,
+"newest_age_h": 0.1
+},
+{
+"url": "https://sportando.basketball/feed",
+"items": 10,
+"newest_age_h": 0.1
+},
+{
+"url": "https://sportando.basketball/rss",
+"items": 10,
+"newest_age_h": 0.1
+}
+]
+},
+{
+"name": "SB Nation",
+"tag": "general",
+"w": 0.8,
+"domain": "sbnation.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://sbnation.com/rss/index.xml",
+"items": 10,
+"newest_age_h": 2.8
+}
+]
+},
+{
+"name": "theScore",
+"tag": "general",
+"w": 0.8,
+"domain": "thescore.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Sports Business Journal",
+"tag": "media",
+"w": 1,
+"domain": "sportsbusinessjournal.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Sports Media Watch",
+"tag": "media",
+"w": 0.8,
+"domain": "sportsmediawatch.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.sportsmediawatch.com/feed/",
+"items": 20,
+"newest_age_h": 3.5
+},
+{
+"url": "https://www.sportsmediawatch.com/comments/feed/",
+"items": 20,
+"newest_age_h": 0.7
+},
+{
+"url": "https://sportsmediawatch.com/feed",
+"items": 20,
+"newest_age_h": 3.5
+},
+{
+"url": "https://sportsmediawatch.com/feed/",
+"items": 20,
+"newest_age_h": 3.5
+}
+]
+},
+{
+"name": "Pitcher List",
+"tag": "mlb",
+"w": 0.7,
+"domain": "pitcherlist.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://pitcherlist.com/feed",
+"items": 10,
+"newest_age_h": 4.5
+},
+{
+"url": "https://pitcherlist.com/feed/",
+"items": 10,
+"newest_age_h": 4.5
+},
+{
+"url": "https://pitcherlist.com/rss",
+"items": 10,
+"newest_age_h": 4.5
+}
+]
+},
+{
+"name": "Puck Pedia",
+"tag": "nhl",
+"w": 0.7,
+"domain": "puckpedia.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Vancouver Province Sports",
+"tag": "nhl",
+"w": 0.7,
+"domain": "theprovince.com/sports",
+"extra": "",
+"candidates": [
+{
+"url": "https://theprovince.com/feed",
+"items": 10,
+"newest_age_h": 3.5
+},
+{
+"url": "https://theprovince.com/feed/",
+"items": 10,
+"newest_age_h": 3.5
+},
+{
+"url": "https://theprovince.com/rss",
+"items": 10,
+"newest_age_h": 2.9
+}
+]
+},
+{
+"name": "NHL Trade Rumors",
+"tag": "nhl",
+"w": 0.7,
+"domain": "nhltraderumors.me",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.nhltraderumors.me/feeds/posts/default",
+"items": 25,
+"newest_age_h": 0.2
+},
+{
+"url": "https://www.nhltraderumors.me/feeds/posts/default?alt=rss",
+"items": 25,
+"newest_age_h": 0.2
+},
+{
+"url": "https://www.blogger.com/feeds/3277310055963332196/posts/default",
+"items": 25,
+"newest_age_h": 0.2
+},
+{
+"url": "https://nhltraderumors.me/feeds/posts/default",
+"items": 25,
+"newest_age_h": 0.2
+}
+]
+},
+{
+"name": "Yardbarker",
+"tag": "general",
+"w": 0.6,
+"domain": "yardbarker.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "90min",
+"tag": "soccer",
+"w": 0.7,
+"domain": "90min.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.90min.com/feed",
+"items": 90,
+"newest_age_h": 10116.6
+},
+{
+"url": "https://90min.com/feed",
+"items": 90,
+"newest_age_h": 10116.6
+},
+{
+"url": "https://90min.com/feed/",
+"items": 90,
+"newest_age_h": 10116.6
+}
+]
+},
+{
+"name": "Football365",
+"tag": "soccer",
+"w": 0.7,
+"domain": "football365.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://football365.com/rss",
+"items": 52,
+"newest_age_h": 1.1
+}
+]
+},
+{
+"name": "Marca",
+"tag": "soccer",
+"w": 0.8,
+"domain": "marca.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.marca.com/rss/googlenews/portada.xml",
+"items": 80,
+"newest_age_h": 0.7
+}
+]
+},
+{
+"name": "AS",
+"tag": "soccer",
+"w": 0.8,
+"domain": "as.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Gazzetta dello Sport",
+"tag": "soccer",
+"w": 0.8,
+"domain": "gazzetta.it",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Kicker",
+"tag": "soccer",
+"w": 0.8,
+"domain": "kicker.de",
+"extra": "",
+"candidates": []
+},
+{
+"name": "L'Equipe",
+"tag": "soccer",
+"w": 0.8,
+"domain": "lequipe.fr",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "U.S. Soccer",
+"tag": "soccer",
+"w": 0.9,
+"domain": "ussoccer.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Olympics.com",
+"tag": "other",
+"w": 0.9,
+"domain": "olympics.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "World Athletics",
+"tag": "other",
+"w": 0.7,
+"domain": "worldathletics.org",
+"extra": "",
+"candidates": [
+{
+"url": "https://worldathletics.org/rss",
+"items": 50,
+"newest_age_h": 38253.9
+}
+]
+},
+{
+"name": "Cycling Weekly",
+"tag": "other",
+"w": 0.7,
+"domain": "cyclingweekly.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Golf Digest",
+"tag": "other",
+"w": 0.9,
+"domain": "golfdigest.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Golfweek",
+"tag": "other",
+"w": 0.9,
+"domain": "golfweek.usatoday.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "LPGA",
+"tag": "other",
+"w": 0.8,
+"domain": "lpga.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Racer",
+"tag": "other",
+"w": 0.8,
+"domain": "racer.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://racer.com/feed",
+"items": 10,
+"newest_age_h": 2.5
+},
+{
+"url": "https://racer.com/feed/",
+"items": 10,
+"newest_age_h": 2.5
+}
+]
+},
+{
+"name": "The Race",
+"tag": "other",
+"w": 0.9,
+"domain": "the-race.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.the-race.com/rss/",
+"items": 15,
+"newest_age_h": 0.1
+},
+{
+"url": "https://the-race.com/feed",
+"items": 15,
+"newest_age_h": 0.1
+},
+{
+"url": "https://the-race.com/feed/",
+"items": 15,
+"newest_age_h": 0.1
+},
+{
+"url": "https://the-race.com/rss",
+"items": 15,
+"newest_age_h": 0.1
+}
+]
+},
+{
+"name": "Frontstretch",
+"tag": "other",
+"w": 0.7,
+"domain": "frontstretch.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "UFC.com",
+"tag": "other",
+"w": 0.8,
+"domain": "ufc.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://ufc.com/rss.xml",
+"items": 10,
+"newest_age_h": 233.9
+}
+]
+},
+{
+"name": "The Ring",
+"tag": "other",
+"w": 0.8,
+"domain": "ringtv.com",
+"extra": "boxing",
+"candidates": []
+},
+{
+"name": "DAZN News",
+"tag": "other",
+"w": 0.7,
+"domain": "dazn.com/en-US/news",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Bloody Elbow",
+"tag": "other",
+"w": 0.7,
+"domain": "bloodyelbow.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://bloodyelbow.com/feed",
+"items": 20,
+"newest_age_h": 0.5
+},
+{
+"url": "https://bloodyelbow.com/feed/",
+"items": 20,
+"newest_age_h": 0.5
+},
+{
+"url": "https://bloodyelbow.com/rss",
+"items": 20,
+"newest_age_h": 0.5
+}
+]
+},
+{
+"name": "Tennis Majors",
+"tag": "other",
+"w": 0.7,
+"domain": "tennismajors.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://tennismajors.com/feed",
+"items": 21,
+"newest_age_h": 9.9
+},
+{
+"url": "https://tennismajors.com/feed/",
+"items": 21,
+"newest_age_h": 9.9
+},
+{
+"url": "https://tennismajors.com/rss",
+"items": 21,
+"newest_age_h": 9.9
+}
+]
+},
+{
+"name": "Cricinfo",
+"tag": "other",
+"w": 0.7,
+"domain": "espncricinfo.com",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Rugby World",
+"tag": "other",
+"w": 0.6,
+"domain": "rugbyworld.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.rugbyworld.com/feed",
+"items": 30,
+"newest_age_h": 9.4
+},
+{
+"url": "https://rugbyworld.com/feed",
+"items": 30,
+"newest_age_h": 9.4
+},
+{
+"url": "https://rugbyworld.com/feed/",
+"items": 30,
+"newest_age_h": 9.4
+},
+{
+"url": "https://rugbyworld.com/rss",
+"items": 30,
+"newest_age_h": 9.4
+}
+]
+},
+{
+"name": "Sporting Life",
+"tag": "general",
+"w": 0.7,
+"domain": "sportinglife.com",
+"extra": "",
+"candidates": [
+{
+"url": "https://sportinglife.com/feed",
+"items": 10,
+"newest_age_h": null
+}
+]
+},
+{
+"name": "Eurosport",
+"tag": "other",
+"w": 0.8,
+"domain": "eurosport.com",
+"extra": "tennis",
+"candidates": []
+},
+{
+"name": "ESPN Women's College Basketball",
+"tag": "cbb",
+"w": 1.2,
+"domain": "espn.com/womens-college-basketball",
+"extra": "",
+"candidates": []
+},
+{
+"name": "ESPN WNBA",
+"tag": "nba",
+"w": 1.2,
+"domain": "espn.com/wnba",
+"extra": "",
+"candidates": []
+},
+{
+"name": "ESPN Tennis",
+"tag": "other",
+"w": 1.2,
+"domain": "espn.com/tennis",
+"extra": "",
+"candidates": []
+},
+{
+"name": "ESPN Golf",
+"tag": "other",
+"w": 1.2,
+"domain": "espn.com/golf",
+"extra": "",
+"candidates": []
+},
+{
+"name": "ESPN MMA",
+"tag": "other",
+"w": 1.2,
+"domain": "espn.com/mma",
+"extra": "",
+"candidates": []
+},
+{
+"name": "ESPN F1",
+"tag": "other",
+"w": 1.2,
+"domain": "espn.com/f1",
+"extra": "",
+"candidates": []
+},
+{
+"name": "ESPN Boxing",
+"tag": "other",
+"w": 1.1,
+"domain": "espn.com/boxing",
+"extra": "",
+"candidates": []
+},
+{
+"name": "CBS Sports MLB",
+"tag": "mlb",
+"w": 1,
+"domain": "cbssports.com/mlb",
+"extra": "",
+"candidates": []
+},
+{
+"name": "CBS Sports NHL",
+"tag": "nhl",
+"w": 1,
+"domain": "cbssports.com/nhl",
+"extra": "",
+"candidates": []
+},
+{
+"name": "CBS Sports Soccer",
+"tag": "soccer",
+"w": 1,
+"domain": "cbssports.com/soccer",
+"extra": "",
+"candidates": []
+},
+{
+"name": "CBS Sports Golf",
+"tag": "other",
+"w": 0.9,
+"domain": "cbssports.com/golf",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Fox Sports NFL",
+"tag": "nfl",
+"w": 1.1,
+"domain": "foxsports.com/nfl",
+"extra": "",
+"candidates": [
+{
+"url": "https://api.foxsports.com/v2/content/optimized-rss?partnerKey=MB0Wehpmuj2lUhuRhQaafhBjAJqaPU244mlTDK1i&size=30",
+"items": 18,
+"newest_age_h": 0.2
+}
+]
+},
+{
+"name": "Fox Sports NBA",
+"tag": "nba",
+"w": 1.1,
+"domain": "foxsports.com/nba",
+"extra": "",
+"candidates": [
+{
+"url": "https://api.foxsports.com/v2/content/optimized-rss?partnerKey=MB0Wehpmuj2lUhuRhQaafhBjAJqaPU244mlTDK1i&size=30",
+"items": 18,
+"newest_age_h": 0.2
+}
+]
+},
+{
+"name": "Fox Sports MLB",
+"tag": "mlb",
+"w": 1.1,
+"domain": "foxsports.com/mlb",
+"extra": "",
+"candidates": [
+{
+"url": "https://api.foxsports.com/v2/content/optimized-rss?partnerKey=MB0Wehpmuj2lUhuRhQaafhBjAJqaPU244mlTDK1i&size=30",
+"items": 18,
+"newest_age_h": 0.2
+}
+]
+},
+{
+"name": "Fox Sports College Football",
+"tag": "cfb",
+"w": 1.1,
+"domain": "foxsports.com/college-football",
+"extra": "",
+"candidates": [
+{
+"url": "https://api.foxsports.com/v2/content/optimized-rss?partnerKey=MB0Wehpmuj2lUhuRhQaafhBjAJqaPU244mlTDK1i&size=30",
+"items": 18,
+"newest_age_h": 0.2
+}
+]
+},
+{
+"name": "Fox Sports Soccer",
+"tag": "soccer",
+"w": 1,
+"domain": "foxsports.com/soccer",
+"extra": "",
+"candidates": [
+{
+"url": "https://api.foxsports.com/v2/content/optimized-rss?partnerKey=MB0Wehpmuj2lUhuRhQaafhBjAJqaPU244mlTDK1i&size=30",
+"items": 18,
+"newest_age_h": 0.2
+}
+]
+},
+{
+"name": "NBC Sports NFL",
+"tag": "nfl",
+"w": 1.1,
+"domain": "nbcsports.com/nfl",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.nbcsports.com/index.atom",
+"items": 4,
+"newest_age_h": 0.3
+}
+]
+},
+{
+"name": "NBC Sports NBA",
+"tag": "nba",
+"w": 1.1,
+"domain": "nbcsports.com/nba",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.nbcsports.com/index.atom",
+"items": 4,
+"newest_age_h": 0.3
+}
+]
+},
+{
+"name": "NBC Sports MLB",
+"tag": "mlb",
+"w": 1.1,
+"domain": "nbcsports.com/mlb",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.nbcsports.com/index.atom",
+"items": 4,
+"newest_age_h": 0.3
+}
+]
+},
+{
+"name": "NBC Sports NHL",
+"tag": "nhl",
+"w": 1,
+"domain": "nbcsports.com/nhl",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.nbcsports.com/index.atom",
+"items": 4,
+"newest_age_h": 0.3
+}
+]
+},
+{
+"name": "NBC Sports Soccer",
+"tag": "soccer",
+"w": 1,
+"domain": "nbcsports.com/soccer",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.nbcsports.com/index.atom",
+"items": 4,
+"newest_age_h": 0.3
+}
+]
+},
+{
+"name": "USA Today NFL",
+"tag": "nfl",
+"w": 1.1,
+"domain": "usatoday.com/sports/nfl",
+"extra": "",
+"candidates": []
+},
+{
+"name": "USA Today NBA",
+"tag": "nba",
+"w": 1.1,
+"domain": "usatoday.com/sports/nba",
+"extra": "",
+"candidates": []
+},
+{
+"name": "USA Today MLB",
+"tag": "mlb",
+"w": 1.1,
+"domain": "usatoday.com",
+"extra": "baseball",
+"candidates": []
+},
+{
+"name": "USA Today College Football",
+"tag": "cfb",
+"w": 1.1,
+"domain": "usatoday.com/sports/ncaaf",
+"extra": "",
+"candidates": []
+},
+{
+"name": "USA Today College Basketball",
+"tag": "cbb",
+"w": 1.1,
+"domain": "usatoday.com/sports/ncaab",
+"extra": "",
+"candidates": []
+},
+{
+"name": "Sports Illustrated NFL",
+"tag": "nfl",
+"w": 1,
+"domain": "si.com/nfl",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.si.com/feed",
+"items": 89,
+"newest_age_h": 0.0
+},
+{
+"url": "https://si.com/feed",
+"items": 89,
+"newest_age_h": 0.0
+},
+{
+"url": "https://si.com/feed/",
+"items": 89,
+"newest_age_h": 0.0
+}
+]
+},
+{
+"name": "Sports Illustrated NBA",
+"tag": "nba",
+"w": 1,
+"domain": "si.com/nba",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.si.com/feed",
+"items": 89,
+"newest_age_h": 0.0
+},
+{
+"url": "https://si.com/feed",
+"items": 89,
+"newest_age_h": 0.0
+},
+{
+"url": "https://si.com/feed/",
+"items": 89,
+"newest_age_h": 0.0
+}
+]
+},
+{
+"name": "Sports Illustrated MLB",
+"tag": "mlb",
+"w": 1,
+"domain": "si.com/mlb",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.si.com/feed",
+"items": 89,
+"newest_age_h": 0.4
+},
+{
+"url": "https://si.com/feed",
+"items": 89,
+"newest_age_h": 0.0
+},
+{
+"url": "https://si.com/feed/",
+"items": 89,
+"newest_age_h": 0.0
+}
+]
+},
+{
+"name": "Sports Illustrated College",
+"tag": "cfb",
+"w": 1,
+"domain": "si.com/college",
+"extra": "",
+"candidates": [
+{
+"url": "https://www.si.com/feed",
+"items": 89,
+"newest_age_h": 0.0
+},
+{
+"url": "https://si.com/feed",
+"items": 89,
+"newest_age_h": 0.0
+},
+{
+"url": "https://si.com/feed/",
+"items": 89,
+"newest_age_h": 0.0
+}
+]
+},
+{
+"name": "Bleacher Report NFL",
+"tag": "nfl",
+"w": 0.9,
+"domain": "bleacherreport.com",
+"extra": "NFL",
+"candidates": []
+},
+{
+"name": "Bleacher Report NBA",
+"tag": "nba",
+"w": 0.9,
+"domain": "bleacherreport.com",
+"extra": "NBA",
+"candidates": []
+},
+{
+"name": "AP NFL",
+"tag": "nfl",
+"w": 1.4,
+"domain": "apnews.com/hub/nfl",
+"extra": "",
+"candidates": []
+},
+{
+"name": "AP NBA",
+"tag": "nba",
+"w": 1.4,
+"domain": "apnews.com",
+"extra": "nba",
+"candidates": []
+},
+{
+"name": "AP MLB",
+"tag": "mlb",
+"w": 1.4,
+"domain": "apnews.com",
+"extra": "mlb",
+"candidates": []
+},
+{
+"name": "AP NHL",
+"tag": "nhl",
+"w": 1.4,
+"domain": "apnews.com",
+"extra": "NHL",
+"candidates": []
+},
+{
+"name": "AP College Football",
+"tag": "cfb",
+"w": 1.4,
+"domain": "apnews.com/hub/college-football",
+"extra": "",
+"candidates": []
+},
+{
+"name": "AP College Basketball",
+"tag": "cbb",
+"w": 1.3,
+"domain": "apnews.com",
+"extra": "college basketball",
+"candidates": []
+},
+{
+"name": "AP Soccer",
+"tag": "soccer",
+"w": 1.3,
+"domain": "apnews.com",
+"extra": "soccer",
+"candidates": []
+},
+{
+"name": "AP Tennis",
+"tag": "other",
+"w": 1.3,
+"domain": "apnews.com",
+"extra": "tennis",
+"candidates": []
+},
+{
+"name": "AP Golf",
+"tag": "other",
+"w": 1.3,
+"domain": "apnews.com",
+"extra": "golf",
+"candidates": []
+},
+{
+"name": "ABC News Sports",
+"tag": "general",
+"w": 0.9,
+"domain": "abcnews.go.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "CNN Sport",
+"tag": "general",
+"w": 0.9,
+"domain": "cnn.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "NBC News Sports",
+"tag": "general",
+"w": 0.9,
+"domain": "nbcnews.com",
+"extra": "sports",
+"candidates": [
+{
+"url": "https://nbcnews.com/feed",
+"items": 25,
+"newest_age_h": 0.4
+},
+{
+"url": "https://nbcnews.com/feed/",
+"items": 25,
+"newest_age_h": 0.4
+},
+{
+"url": "https://nbcnews.com/rss",
+"items": 25,
+"newest_age_h": 0.4
+}
+]
+},
+{
+"name": "Fox News Sports",
+"tag": "general",
+"w": 0.7,
+"domain": "foxnews.com",
+"extra": "sports",
+"candidates": [
+{
+"url": "https://moxie.foxnews.com/google-publisher/latest.xml",
+"items": 25,
+"newest_age_h": -12.5
+},
+{
+"url": "https://foxnews.com/rss",
+"items": 25,
+"newest_age_h": -12.5
+},
+{
+"url": "https://foxnews.com/rss.xml",
+"items": 25,
+"newest_age_h": 0.2
+}
+]
+},
+{
+"name": "CBS News Sports",
+"tag": "general",
+"w": 0.9,
+"domain": "cbsnews.com",
+"extra": "sports",
+"candidates": []
+},
+{
+"name": "BBC Tennis",
+"tag": "other",
+"w": 1,
+"domain": "bbc.com",
+"extra": "tennis",
+"candidates": []
+},
+{
+"name": "BBC Golf",
+"tag": "other",
+"w": 1,
+"domain": "bbc.com",
+"extra": "golf",
+"candidates": []
+},
+{
+"name": "BBC Formula 1",
+"tag": "other",
+"w": 1,
+"domain": "bbc.com",
+"extra": "formula 1",
+"candidates": []
+},
+{
+"name": "BBC Rugby",
+"tag": "other",
+"w": 0.9,
+"domain": "bbc.com",
+"extra": "rugby",
+"candidates": []
+},
+{
+"name": "BBC Cricket",
+"tag": "other",
+"w": 0.9,
+"domain": "bbc.com",
+"extra": "cricket",
+"candidates": []
+},
+{
+"name": "Guardian NFL",
+"tag": "nfl",
+"w": 1,
+"domain": "theguardian.com",
+"extra": "nfl",
+"candidates": []
+},
+{
+"name": "Guardian NBA",
+"tag": "nba",
+"w": 1,
+"domain": "theguardian.com",
+"extra": "nba",
+"candidates": []
+},
+{
+"name": "Guardian MLB",
+"tag": "mlb",
+"w": 1,
+"domain": "theguardian.com",
+"extra": "mlb",
+"candidates": []
+},
+{
+"name": "Guardian Cricket",
+"tag": "other",
+"w": 1,
+"domain": "theguardian.com",
+"extra": "cricket",
+"candidates": []
+},
+{
+"name": "Guardian Rugby",
+"tag": "other",
+"w": 1,
+"domain": "theguardian.com",
+"extra": "rugby",
+"candidates": []
+},
+{
+"name": "Yahoo Sports MMA",
+"tag": "other",
+"w": 1,
+"domain": "sports.yahoo.com",
+"extra": "ufc",
+"candidates": [
+{
+"url": "https://sports.yahoo.com/rss/",
+"items": 50,
+"newest_age_h": 0.2
+},
+{
+"url": "https://sports.yahoo.com/rss",
+"items": 50,
+"newest_age_h": 0.2
+}
+]
+},
+{
+"name": "Yahoo Sports Golf",
+"tag": "other",
+"w": 1,
+"domain": "sports.yahoo.com",
+"extra": "golf",
+"candidates": [
+{
+"url": "https://sports.yahoo.com/rss/",
+"items": 50,
+"newest_age_h": 0.2
+},
+{
+"url": "https://sports.yahoo.com/rss",
+"items": 50,
+"newest_age_h": 0.2
+}
+]
+},
+{
+"name": "Yahoo Sports Tennis",
+"tag": "other",
+"w": 1,
+"domain": "sports.yahoo.com",
+"extra": "tennis",
+"candidates": [
+{
+"url": "https://sports.yahoo.com/rss/",
+"items": 50,
+"newest_age_h": 0.2
+},
+{
+"url": "https://sports.yahoo.com/rss",
+"items": 50,
+"newest_age_h": 0.2
+}
+]
+},
+{
+"name": "TSN CFL",
+"tag": "other",
+"w": 0.8,
+"domain": "tsn.ca",
+"extra": "cfl",
+"candidates": []
+},
+{
+"name": "Sportsnet MLB",
+"tag": "mlb",
+"w": 0.9,
+"domain": "sportsnet.ca",
+"extra": "blue jays",
+"candidates": [
+{
+"url": "https://sportsnet.ca/feed",
+"items": 63,
+"newest_age_h": 0.0
+},
+{
+"url": "https://sportsnet.ca/feed/",
+"items": 63,
+"newest_age_h": 0.0
+},
+{
+"url": "https://sportsnet.ca/rss",
+"items": 63,
+"newest_age_h": 0.0
+}
+]
+},
+{
+"name": "Sportsnet NBA",
+"tag": "nba",
+"w": 0.9,
+"domain": "sportsnet.ca",
+"extra": "raptors",
+"candidates": [
+{
+"url": "https://sportsnet.ca/feed",
+"items": 63,
+"newest_age_h": 0.0
+},
+{
+"url": "https://sportsnet.ca/feed/",
+"items": 63,
+"newest_age_h": 0.0
+},
+{
+"url": "https://sportsnet.ca/rss",
+"items": 63,
+"newest_age_h": 0.0
+}
+]
+},
+{
+"name": "Athletic MLB",
+"tag": "mlb",
+"w": 1.2,
+"domain": "nytimes.com",
+"extra": "athletic baseball",
+"candidates": []
+},
+{
+"name": "Athletic College",
+"tag": "cfb",
+"w": 1.2,
+"domain": "nytimes.com",
+"extra": "athletic college football",
+"candidates": []
+},
+{
+"name": "Athletic NHL",
+"tag": "nhl",
+"w": 1.2,
+"domain": "nytimes.com",
+"extra": "athletic nhl",
+"candidates": []
+},
+{
+"name": "Athletic Golf",
+"tag": "other",
+"w": 1.2,
+"domain": "nytimes.com",
+"extra": "athletic golf",
+"candidates": []
+}
+]
