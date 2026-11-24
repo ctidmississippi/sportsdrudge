@@ -86,8 +86,30 @@ KW = [
  ("nhl", r"\b(nhl|stanley cup|hockey|bruins|rangers|maple leafs|canadiens|oilers|flames|canucks|avalanche|golden knights|kraken|predators|stars|blackhawks|red wings|lightning|panthers|hurricanes|devils|islanders|capitals|penguins|flyers|sabres|senators|wild|blues|jets|ducks|sharks|blue jackets|coyotes|mammoth)\b"),
  ("mlb", r"\b(mlb|world series|yankees|dodgers|mets|red sox|cubs|braves|astros|padres|phillies|orioles|rays|blue jays|guardians|tigers|twins|royals|mariners|rangers|angels|athletics|brewers|reds|pirates|cardinals|giants|rockies|diamondbacks|marlins|nationals|white sox|cy young|mvp)\b"),
  ("soccer", r"\b(premier league|la liga|bundesliga|serie a|champions league|mls|world cup|fifa|uefa|manchester|arsenal|chelsea|liverpool|tottenham|real madrid|barcelona|bayern|psg|usmnt|uswnt|nations league|transfer)\b"),
- ("other", r"\b(f1|formula 1|formula one|nascar|golf|pga|liv golf|tennis|atp|wta|ufc|mma|boxing|olympic|nba cup)\b"),
+ ("other", r"\b(f1|formula 1|formula one|nascar|indycar|motogp|golf|pga|liv golf|tennis|atp|wta|ufc|mma|boxing|olympic|olympics|nba cup|track and field|athletics|marathon|swimming|gymnastics|cycling|tour de france|rugby|cricket|volleyball|lacrosse|softball|wrestling|skiing|figure skating|curling)\b"),
 ]
+NICHE = [
+ ("track", r"track and field|world athletics|marathon|sprinter|diamond league|\bathletics\b"),
+ ("swim", r"swimming|swimmer|aquatics|\bdiving\b"),
+ ("gym", r"gymnast"),
+ ("cycling", r"cycling|tour de france|cyclist"),
+ ("rugby", r"rugby"),
+ ("cricket", r"cricket|the ashes|\bipl\b"),
+ ("mma", r"\bufc\b|\bmma\b|boxing|title fight"),
+ ("olympics", r"olympic|\bioc\b"),
+ ("volleyball", r"volleyball"),
+ ("motor", r"\bf1\b|formula 1|nascar|indycar|motogp"),
+ ("tennis", r"tennis|\batp\b|\bwta\b|grand slam"),
+ ("golf", r"\bgolf|\bpga\b|\blpga\b"),
+ ("winter", r"skiing|biathlon|figure skating|speed skating|curling"),
+ ("college", r"lacrosse|wrestling|softball"),
+]
+def niche(c):
+    t = " ".join(i["title"] for i in c["items"][:4]).lower()
+    for k, pat in NICHE:
+        if re.search(pat, t): return k
+    return None
+
 def classify(it):
     t = it["title"].lower()
     base = it["tag"]
@@ -346,6 +368,20 @@ def main():
             cnt[c["sport"]] = cnt.get(c["sport"], 0) + 1
             col.append(c)
             if len(col) >= per: break
+        if "other" in g:
+            rk = {id(x): n for n, x in enumerate(rest)}
+            have = {id(x) for x in col}
+            seen_n = {niche(x) for x in col}
+            wmin, wslots = cfg.get("wild_min_sources", 2), cfg.get("wild_slots", 6)
+            extra = []
+            for x in rest:
+                if x["sport"] != "other" or id(x) in have or x["n"] < wmin: continue
+                nk = niche(x)
+                if nk and nk not in seen_n:
+                    extra.append(x); seen_n.add(nk)
+                if len(extra) >= wslots: break
+            if extra:
+                col = sorted(col[: max(0, per - len(extra))] + extra, key=lambda x: rk[id(x)])
         items_ = []
         for k, c in enumerate(col):
             m = mk(c); m["text"] += "..."
