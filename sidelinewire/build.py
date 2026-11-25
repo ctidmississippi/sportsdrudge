@@ -277,16 +277,18 @@ def main():
     else:
         gn = [f for f in feeds if "news.google.com" in f["url"]]
         other = [f for f in feeds if "news.google.com" not in f["url"]]
-        def run_gn():
+        def run_gn(chunk):
             out = []
-            for f in gn:
+            for f in chunk:
                 out.append(fetch(f, cfg.get("timeout", 15)))
                 time.sleep(cfg.get("gn_delay", 1.5))
             return out
-        with ThreadPoolExecutor(max_workers=cfg.get("workers", 24) + 1) as ex:
-            gf = ex.submit(run_gn)
+        lanes = max(1, int(cfg.get("gn_lanes", 1)))
+        with ThreadPoolExecutor(max_workers=cfg.get("workers", 24) + lanes) as ex:
+            gfs = [ex.submit(run_gn, gn[k::lanes]) for k in range(lanes)]
             results = list(ex.map(lambda f: fetch(f, cfg.get("timeout", 15)), other))
-            results += gf.result()
+            for gf in gfs:
+                results += gf.result()
 
     report, items = [], []
     cutoff = now - timedelta(hours=cfg.get("max_age_hours", 40))
