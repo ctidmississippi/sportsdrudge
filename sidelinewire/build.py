@@ -13,7 +13,10 @@ sys.path.insert(0, str(ROOT))
 import art
 SPAM = re.compile(r"\b(promo codes?|bonus|odds|predictions?|parlays?|best bets?|betting|sportsbook|draftkings|fanduel|bet365|caesars|prizepicks|how to watch|live stream|where to watch|tv channels?|kickoff times?|start time|fantasy|start 'em|waiver|dfs|player props|power rankings|subscriber chat|mock draft|trivia|this week in|highlights|video|pregame|postgame|post-game|game day|gameday|live blog|live updates|how to watch|game rewind|rewind|recap|preview|take on|taking on|what to know|everything you need|key matchups|game thread|matchup|how to follow|live updates|live blog|live coverage|live thread|scores, recaps|high school|prep football|how to bet|spread|moneyline|over/under|injury report|newsletter|podcast|quiz|slideshow|gallery|news & analysis|news, scores|scores, & standings|scores & standings|scores and standings|schedule, scores|standings|scoring stats|player stats|career stats|team stats|stat leaders|game log|college football scoring|latest news|sports news|mailbag|sports on tv|open thread|game recap|box score|final score|live score|expert picks|staff picks|week \d+ picks|nfl picks)\b", re.I)
 TEAMPAGE = re.compile(r"\bnews\s*[-–—|]\s*\w+|[-–—|]\s*(?:college football|college basketball|nfl|nba|nhl|mlb|mls|soccer|football|basketball|hockey|baseball)\s*$|\bnews\s*$|\bstats\s*[-–—|]|[-–—|]\s*ncaa\w*\b|\bstats per game\b|\bstats\s*\(\d{4}\)", re.I)
-POLITICS = re.compile(r"\b(trump|biden|harris|vance|congress|senate|senator|white house|democrat|democrats|republican|republicans|supreme court|nvidia|tariff|tariffs|stock market|wall street|federal reserve|inflation|ukraine|russia|gaza|israel|election|immigration|ceo|ai chip|bitcoin|crypto|episodes?|showrunners?|season \d+|box office|movies?|films?|album|netflix|hbo|rings of power|tv series|tv show|streaming series)\b", re.I)
+POLITICS = re.compile(r"\b(trump|biden|harris|vance|congress|senate|senator|white house|democrat|democrats|republican|republicans|supreme court|nvidia|tariff|tariffs|stock market|wall street|federal reserve|inflation|ukraine|russia|gaza|israel|election|immigration|ceo|ai chip|bitcoin|crypto|episodes?|showrunners?|season \d+|box office|movies?|films?|album|netflix|hbo|rings of power|tv series|tv show|streaming series|stock indexes|stock index|stocks|nasdaq|s&p 500|dow jones|treasury|oil prices)\b", re.I)
+MEDIA_OK = re.compile(r"\b(espn|fox sports|fox|nbc|cbs|abc|tnt|amazon|dazn|peacock|paramount|broadcast\w*|rights|ratings|viewership|viewers|network|streaming|tv deal|media deal|sponsor\w*|nil|conference|ncaa|athletic director|commissioner|league|team|teams|owner|franchise|stadium|coach|coaches|players?|athletes?|sports|nfl|nba|mlb|nhl|fifa|ufc|wnba|college sports|anchor|analyst|commentator|announcer|play-by-play|valuation|revenue|tickets?|pricing|sec|big ten|alberts)\b", re.I)
+def media_ok(c):
+    return any(MEDIA_OK.search(i["title"]) or any(re.search(p, i["title"].lower()) for _, p in KW) for i in c["items"][:5])
 def offtopic(title):
     """Politics/business headline with no sport keyword anywhere in it."""
     t = title.lower()
@@ -358,7 +361,7 @@ def main():
     for t in top: t["text"] = t["text"].upper()
     for t in topleft: t["text"] = t["text"].upper() + "..."
     rest = [c for c in clusters if id(c) not in used]
-    mcl = [c for c in rest if c["sport"] == "media"][: cfg.get("media_items", 8)]
+    mcl = [c for c in rest if c["sport"] == "media" and media_ok(c)][: cfg.get("media_items", 8)]
     mused = {id(c) for c in mcl}
     rest = [c for c in rest if id(c) not in mused]
     media = []
