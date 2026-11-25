@@ -32,5 +32,6 @@
  "gn_delay": 2,
  "media_items": 8,
  "site_description": "The day's biggest sports headlines from nearly 300 outlets, ranked and refreshed every morning.",
- "site_url": "https://ctidmississippi.github.io/sportsdrudge/"
+ "site_url": "https://ctidmississippi.github.io/sportsdrudge/",
+ "gn_lanes": 2
 }
