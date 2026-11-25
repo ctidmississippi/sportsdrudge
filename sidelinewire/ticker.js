@@ -3,7 +3,7 @@
   if (!el) return;
   var LEAGUES = [
     ["football/nfl", "NFL"], ["basketball/nba", "NBA"], ["hockey/nhl", "NHL"],
-    ["football/college-football", "CFB"], ["basketball/mens-college-basketball", "CBB"],
+    ["football/college-football", "CFB", "?groups=80&limit=400"], ["basketball/mens-college-basketball", "CBB", "?groups=50&limit=400"],
     ["baseball/mlb", "MLB"], ["soccer/eng.1", "EPL"], ["soccer/usa.1", "MLS"]
   ];
   var BASE = "https://site.api.espn.com/apis/site/v2/sports/";
@@ -40,7 +40,7 @@
   }
   function load() {
     Promise.all(LEAGUES.map(function (l) {
-      return fetch(BASE + l[0] + "/scoreboard").then(function (r) { return r.json(); }).then(function (j) {
+      return fetch(BASE + l[0] + "/scoreboard" + (l[2] || "")).then(function (r) { return r.json(); }).then(function (j) {
         return {label: l[1], items: (j.events || []).map(one).filter(Boolean)};
       }).catch(function () { return {label: l[1], items: []}; });
     })).then(function (groups) {
