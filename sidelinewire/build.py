@@ -13,6 +13,13 @@ sys.path.insert(0, str(ROOT))
 import art
 SPAM = re.compile(r"\b(promo codes?|bonus|odds|predictions?|parlays?|best bets?|betting|sportsbook|draftkings|fanduel|bet365|caesars|prizepicks|how to watch|live stream|where to watch|tv channels?|kickoff times?|start time|fantasy|start 'em|waiver|dfs|player props|power rankings|subscriber chat|mock draft|trivia|this week in|highlights|video|pregame|postgame|post-game|game day|gameday|live blog|live updates|how to watch|game rewind|rewind|recap|preview|take on|taking on|what to know|everything you need|key matchups|game thread|matchup|how to follow|live updates|live blog|live coverage|live thread|scores, recaps|high school|prep football|how to bet|spread|moneyline|over/under|injury report|newsletter|podcast|quiz|slideshow|gallery|news & analysis|latest news|sports news|mailbag|sports on tv|open thread|game recap|box score|final score|live score|expert picks|staff picks|week \d+ picks|nfl picks)\b", re.I)
 TEAMPAGE = re.compile(r"\bnews\s*[-–—|]\s*\w+|[-–—|]\s*(?:college football|college basketball|nfl|nba|nhl|mlb|mls|soccer|football|basketball|hockey|baseball)\s*$|\bnews\s*$", re.I)
+POLITICS = re.compile(r"\b(trump|biden|harris|vance|congress|senate|senator|white house|democrat|democrats|republican|republicans|supreme court|nvidia|tariff|tariffs|stock market|wall street|federal reserve|inflation|ukraine|russia|gaza|israel|election|immigration|ceo|ai chip|bitcoin|crypto)\b", re.I)
+def offtopic(title):
+    """Politics/business headline with no sport keyword anywhere in it."""
+    t = title.lower()
+    if not POLITICS.search(t):
+        return False
+    return not any(re.search(p, t) for _, p in KW)
 SPAM2 = re.compile(r"\(\s*(?:[A-Za-z]+\s+)?\d{1,2}[ /]+[A-Za-z]+,?\s+\d{4}\s*\)|\(\s*[A-Za-z]+\s+\d{1,2},?\s+\d{4}\s*\)|\(\s*\d{1,2}/\d{1,2}/\d{2,4}\s*\)")
 UA = "Mozilla/5.0 (compatible; SidelineWire/1.0; +https://github.com)"
 STOP = set("a an the of to in on at for and or vs v with as by is are be from after before over into its it his her their will not out up new says say report reports reportedly per via just".split())
@@ -304,7 +311,7 @@ def main():
         print("Too few items; refusing to overwrite the page.", file=sys.stderr); sys.exit(2)
 
     before = len(items)
-    items = [i for i in items if len(i["title"]) >= 15 and not SPAM.search(i["title"]) and not SPAM2.search(i["title"]) and not TEAMPAGE.search(i["title"])]
+    items = [i for i in items if len(i["title"]) >= 15 and not SPAM.search(i["title"]) and not SPAM2.search(i["title"]) and not TEAMPAGE.search(i["title"]) and not offtopic(i["title"])]
     print(f"filtered {before - len(items)} promo/betting items", file=sys.stderr)
     for it in items:
         it["sport"] = classify(it)
